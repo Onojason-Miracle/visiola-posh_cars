@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page - POSH_CARS</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- externam css font awesome -->
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+
     <link rel="stylesheet" href="../CSS/home.css" />
     <link rel="stylesheet" href="../CSS/navbar.css" />
+    <link rel="stylesheet" href="../CSS/about.css" />
   </head>
   <body>
     <section>
@@ -25,7 +35,7 @@
               <nav class="navbar">
                 <div class="navbar-container">
                   <div class="navbar-brand">
-                    <a href="" target="_blank" class="logo">POSH_CARS</a>
+                    <a href="" target="_blank" class="logo " >POSH_CARS</a>
                   </div>
 
                   <ul class="navbar-links">
@@ -66,15 +76,15 @@
 
               <div class="content">
                 <div class="content-1">
-                  <h3>Welcome to Posh Cars</h3>
-                  <h1>Luxury Cars,Your Way!</h1>
-                  <p>
+                  <h3 class="animated-text">Welcome to Posh Cars</h3>
+                  <h1 class="animated-text">Luxury Cars,Your Way!</h1>
+                  <p class="animated-text">
                     Explore our premium collection of luxury vehicles and turn
                     your driving dreams into reality. Discover elegance, style,
                     and performance—all at your fingertips.
                   </p>
 
-                  <div class="buttons">
+                  <div class="buttons animated-text">
                     <!-- <button class="home-btn">
                          <a target="_blank" href="" class>Buy a car</a>
                         </button> -->
@@ -92,47 +102,102 @@
     </section>
 
     <section id="about">
-      <div class="about-img-div">Image</div>
+      <div class="about-img-div">
+        <img
+          src="https://res.cloudinary.com/blackgirlmagic/image/upload/v1713477610/poshCars/d82c614d-0c4d-4a04-a1c8-8c3f05413c77_py2ehu.jpg"
+          class="about-img" alt="car-image"
+        />
+      </div>
       <div class="about-text">
         <div class="about-text-inner">
           <div class="about-text-heading">
-            <p>About Us</p>
-            <h3>More than 150+ special collections of car</h3>
-            <p>
-              Step into a world of automotive elegance with Posh Cars, your
-              premier destination for luxury vehicle rentals. Explore our
-              exclusive collection of premium vehicles and turn your driving
-              fantasies into reality.
-            </p>
+            <p class="about-text-heading-p1">About Us</p>
+            <div class="about-text-heading-flex">
+              <h3 class="about-text-heading-h3">
+                More than 150+ special collections of car
+              </h3>
+              <p class="about-text-heading-p2">
+                Step into a world of automotive elegance with Posh Cars, your
+                premier destination for luxury vehicle rentals. Explore our
+                exclusive collection of premium vehicles and turn your driving
+                fantasies into reality.
+              </p>
+            </div>
           </div>
-          <div>
-           <div>
-            <h3>Why Choose Posh Cars</h3>
-            <ul>
-                <li><b>Unparalleled Luxury: </b>Experience the epitome of luxury with our carefully curated selection of high-end vehicles, each designed to elevate your journey.</li>
 
-                <li><b>Personalized Service: </b>Our dedicated team is committed to providing a seamless rental experience tailored to your preferences and needs.</li>
+          <div class="about-why-choose">
+            <h3 class="about-why-choose-h1">Why Choose Posh Cars</h3>
+            <ul class="about-ul">
+              <li>
+                <b>Unparalleled Luxury: </b>Experience the epitome of luxury
+                with our carefully curated selection of high-end vehicles, each
+                designed to elevate your journey.
+              </li>
 
-                <li><b>Wide Range of Options: </b>From sleek sports cars to sophisticated SUVs, we offer a diverse fleet of vehicles to suit every occasion and style.</li>
+              <li>
+                <b>Personalized Service: </b>Our dedicated team is committed to
+                providing a seamless rental experience tailored to your
+                preferences and needs.
+              </li>
+
+              <li>
+                <b>Wide Range of Options: </b>From sleek sports cars to
+                sophisticated SUVs, we offer a diverse fleet of vehicles to suit
+                every occasion and style.
+              </li>
             </ul>
-           </div>
-
-           <div>
-            <h3>How it works</h3>
-
-            <ol>
-                <li><b>Browse Our Collection: </b> Explore our impressive lineup of luxury cars, featuring the latest models from renowned brands.</li>
-
-                <li><b>Select Your Dream Ride: </b> Choose the vehicle that matches your vision and requirements, whether it's for a special event, leisurely getaway, or business trip.</li>
-
-                <li><b>Book with Ease: </b>Reserve your desired car effortlessly through our user-friendly app or website, with flexible rental durations to fit your schedule.</li>
-
-                <li><b>Enjoy the Journey: </b>Embark on a memorable driving experience with a Posh Cars rental, where luxury and performance seamlessly blend.</li>
-            </ol>
-           </div>
           </div>
         </div>
       </div>
     </section>
+
+    <section id="service">
+       <div class="service-inner1">
+        <p class="service-inner1-p1">Our Services</p>
+        <h3 class="service-inner1-h3">We have the best services for rented cars</h3>
+        <p class="service-inner1-p2">
+            Our dedicated team is committed to providing a seamless rental experience tailored to your preferences and needs. From sleek sports cars to sophisticated SUVs, we offer a diverse fleet of vehicles to suit every occasion and style.
+        </p>
+       </div>
+
+       <div  class="service-inner2">
+        <div class="service-inner1-divs">
+           
+           <div class="service-inner1-divs-padding">
+            <i class="fa-solid fa-medal"></i>
+            <div class="service-inner1-divs-text">
+                <p class="service-inner1-divs-text-p1">Quality Choice</p>
+                <p class="service-inner1-divs-text-p2">
+                    Discover Quality Choice at Posh Cars. We offer a diverse selection of top-tier vehicles, ensuring you find the perfect ride for any occasion.
+                </p>
+            </div>
+           </div>
+        </div>
+        <div class="service-inner1-divs">
+           <div class="service-inner1-divs-padding">
+            <i class="fa-solid fa-taxi"></i>
+            <div class="service-inner1-divs-text">
+                <p class="service-inner1-divs-text-p1">Exclusive Service</p>
+                <p class="service-inner1-divs-text-p2">Enjoy Exclusive Service with Posh Cars. From personalized options to premium features, we go above and beyond to make your rental experience extraordinary.</p>
+            </div>
+           </div>
+        </div>
+        <div class="service-inner1-divs">
+            <div class="service-inner1-divs-padding">
+                <i class="fa-solid fa-shield-heart"></i>
+            <div class="service-inner1-divs-text">
+                <p class="service-inner1-divs-text-p1">Fast and Safe</p>
+                <p class="service-inner1-divs-text-p2">
+                    Experience Fast and Safe Service with Posh Cars. We prioritize efficiency and safety to provide you with a seamless and secure rental experience.
+                </p>
+            </div>
+            </div>
+        </div>
+       </div>
+    </section>
+
+    <script src="../JS/home.js">
+        
+    </script>
   </body>
 </html>

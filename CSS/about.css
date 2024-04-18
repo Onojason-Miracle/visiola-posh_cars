@@ -1,0 +1,181 @@
+:root {
+  --bg-color: #1c1c1c;
+  --white: white;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-alfa: "Alfa Slab One", cursive;
+  --red: rgb(150, 13, 13);
+  --grey: #ccc;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-jakarta);
+}
+
+#about {
+  width: 90%;
+  margin: auto;
+  margin-top: 8%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+
+.about-img-div {
+  width: 100%;
+}
+
+.about-img {
+  width: 100%;
+height: 500px;
+object-fit: cover;
+
+}
+
+.about-text {
+  width: 100%;
+  color: var(--bg-color);
+}
+
+.about-why-choose {
+  margin-top: 5%;
+}
+
+.about-ul li {
+  margin-top: 4%;
+ 
+}
+
+.about-text-heading-p1 {
+  font-weight: 900;
+  color: var(--red);
+  font-size: 18px;
+}
+
+.about-text-heading-h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 3%;
+}
+
+.about-text-heading-p2 {
+  font-size: 14px;
+}
+
+.about-text-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+}
+
+.about-text-inner {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 470px;
+}
+
+.about-why-choose-h1 {
+  color: var(--red);
+  text-decoration: underline;
+}
+/* service section styles */
+
+#service {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://res.cloudinary.com/blackgirlmagic/image/upload/v1713456623/poshCars/pexels-akos-szabo-145938-440731_hsggak.jpg");
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 390px;
+  margin-bottom: 20%;
+}
+
+.service-inner1 {
+  width: 50%;
+  margin: auto;
+  padding-top: 3%;
+  text-align: center;
+}
+
+.service-inner1-p1 {
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 4%;
+  text-decoration: underline;
+}
+
+.service-inner1-h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--grey);
+  margin-bottom: 2%;
+}
+
+.service-inner1-p2 {
+  color: var(--bg-color);
+}
+
+.service-inner2{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    margin-top: 4%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+
+.service-inner1-divs{
+    height: 250px;
+    background-color: var(--white);
+    width: 23.3%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    border-top: 5px solid rgb(150, 13, 13);
+    border-bottom: 5px solid rgb(150, 13, 13);
+  
+   /* margin-top: 4%; for the blog*/
+}
+
+.service-inner1-divs-padding{
+    width: 85%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.service-inner1-divs-padding i{
+    font-size: 3.5rem;
+    text-align: center;
+    
+}
+
+.service-inner1-divs-text{
+    margin-top: 8%;
+}
+
+.service-inner1-divs-text-p1{
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--red);
+    
+
+}
+
+.service-inner1-divs-text-p2{
+    margin-top: 5%;
+    font-size: 14px;
+    line-height: 1.5;
+    
+}

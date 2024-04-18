@@ -20,7 +20,7 @@ body {
   justify-content: space-between;
   width: 70%;
   margin: auto;
-  margin-top: 3%;
+  margin-top: 5%;
 }
 .form {
   width: 100%;
@@ -69,10 +69,10 @@ label {
 .reg-img {
   width: 100%;
   height: 600px;
-  object-fit: contain;
-  border-radius: 10px;
-  margin-left: 15%;
-  padding-top: 35%;
+  object-fit: cover;
+  padding-top: 38%;
+  margin-left: 13%;
+ 
   /* transform: scaleX(-1); */
 }
 
@@ -80,22 +80,20 @@ label {
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 600px;
+  height: 500px;
   justify-content: center;
   align-items: center;
-
 }
 
 .reg-img-div {
   width: 80%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/blackgirlmagic/image/upload/v1713456623/poshCars/pexels-akos-szabo-145938-440731_hsggak.jpg");
- border-radius: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://res.cloudinary.com/blackgirlmagic/image/upload/v1713456623/poshCars/pexels-akos-szabo-145938-440731_hsggak.jpg");
+    border-radius: 10px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  
-   
+  height: 500px;
 }
 
 .formm {
@@ -109,9 +107,9 @@ label {
 }
 
 .terms:hover {
-    color: var(--red);
-    text-decoration: underline;
-  }
+  color: var(--red);
+  text-decoration: underline;
+}
 
 .form-info {
   text-align: center;
@@ -128,4 +126,6 @@ label {
 .form-info-p2 {
   font-size: 14px;
 }
+
+
 

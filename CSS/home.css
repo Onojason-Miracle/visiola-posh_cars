@@ -133,7 +133,25 @@
    color: var(--white)
   }
   
+  /* animation */
 
+  .animated-text {
+    opacity: 0;
+    transform: translateY(20px); /* Move text down initially */
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+ /* Keyframes for the animation */
+ @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
   
   /* cars section */
   

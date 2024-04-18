@@ -1,0 +1,127 @@
+
+:root {
+    --bg-color: #1c1c1c;
+    --white: white;
+    --font-jakarta: "Plus Jakarta Sans", sans-serif;
+    --font-alfa: "Alfa Slab One", cursive;
+    --red: rgb(150, 13, 13);
+   
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-jakarta);
+  }
+  
+  /* navbar */
+  .navbar {
+    background-color: var(--white);
+     color: var(--bg-color);
+     padding: 1rem;
+     width: 100%;
+    
+   }
+   
+   .navbar-container {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 90%;
+     margin: auto;
+   }
+   
+   .navbar-brand {
+     font-size: 1.5rem;
+     font-family: var(--font-alfa);
+   }
+   
+   .navbar-links {
+     display: flex;
+     align-items: center;
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+   }
+   
+   .nav-btn {
+    border: none;
+    background-color: transparent;
+   }
+ 
+  .nav-div{
+   width: 90%; 
+    margin: auto;
+    border-bottom: 2px solid rgb(150, 13, 13) ;
+  }
+ 
+   .nav-btn-link {
+     color: var(--white);
+     text-decoration: none;
+     transition: background-color 0.3s ease;
+     font-weight: 700;
+     text-align: center;
+     background-color: var(--red);
+     padding: 12px 40px;
+     border-radius: 10px;
+    
+   }
+ 
+   .nav-btn-link:hover {
+    border: 2px solid rgb(150, 13, 13);
+    color: var(--bg-color);
+    background-color: transparent;
+   }
+   
+   .navbar-links li {
+     margin-right: 1rem;
+   }
+   
+   .nav-link {
+     color: var(--bg-color);
+     text-decoration: none;
+     padding: 0.5rem;
+     transition: background-color 0.3s ease;
+     font-weight: 700;
+   }
+ 
+   .logo {
+     color: var(--red);
+     text-decoration: none;
+     padding: 0.5rem;
+     transition: background-color 0.3s ease;
+     font-weight: 700;
+   }
+   
+   .first-li .nav-link:nth-child(1) {
+     border-bottom: 2px solid rgb(150, 13, 13);
+   }
+   .nav-btn-link {
+     color: var(--white);
+     text-decoration: none;
+     transition: background-color 0.3s ease;
+     font-weight: 700;
+     text-align: center;
+   }
+   
+   .nav-link:hover {
+     border-bottom: 2px solid rgb(150, 13, 13);
+   }
+   
+   .navbar-toggle {
+     display: none;
+     flex-direction: column;
+     cursor: pointer;
+   }
+   
+   .navbar-toggle span {
+     height: 2px;
+     width: 25px;
+     background-color: #fff;
+     margin: 3px 0;
+   }
+   
+   

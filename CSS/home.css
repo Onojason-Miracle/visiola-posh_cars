@@ -4,6 +4,9 @@
     --font-jakarta: "Plus Jakarta Sans", sans-serif;
     --font-alfa: "Alfa Slab One", cursive;
     --red: rgb(150, 13, 13);
+    /* rgb(150, 13, 13)  rgb(200, 50,50)  #ff4500*/
+    
+
    
   }
   * {
@@ -73,7 +76,7 @@
     font-size: 2rem;
     margin-bottom: 1rem;
     font-weight: 800;
-    color: var(--red);
+    color: var(--red)
   }
   
   .content h3{

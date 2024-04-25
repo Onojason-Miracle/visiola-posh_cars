@@ -1,0 +1,88 @@
+:root {
+    --bg-color: #1c1c1c;
+    --white: white;
+    --font-jakarta: "Plus Jakarta Sans", sans-serif;
+    --font-alfa: "Alfa Slab One", cursive;
+    --red: rgb(150, 13, 13);
+    --grey: #808080;
+    --greyish: #ccc;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'poppins';
+  }
+
+.clientMain{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("https://res.cloudinary.com/blackgirlmagic/image/upload/v1713450368/poshCars/lex7_ar5mj6.jpg");
+  /* border-radius: 10px; */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: fit-content;
+  padding-bottom: 5%;
+}
+
+.clientMain-div{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)) ;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 5%;
+    
+}
+
+.formm{
+width: 90%;
+margin: auto;
+color: var(--white);
+}
+
+.formm h2{
+    padding: 4% 0 4% 0;
+    text-align: center;
+}
+
+.hello{
+    display: flex;
+    justify-content: space-between;
+   margin-top: 1%;
+   border-bottom: 2px solid white;
+  padding-bottom: 2%;
+}
+
+.client-btn{
+   
+ background-color: transparent;
+    margin: auto;
+    margin-top: 5%;
+    padding: 12px 150px ;
+    border: 2px solid white;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+
+.client-btn:hover{
+    background-color: var(--white);
+    border: none;
+    color: var(--bg-color);
+  
+   }
+   
+.form-control{
+    background-color: var(--greyish);
+}
+
+
+
+
+
+

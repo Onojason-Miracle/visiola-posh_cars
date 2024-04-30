@@ -1,0 +1,125 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-jakarta);
+}
+
+.reg-main {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+}
+.form {
+  width: 100%;
+}
+.icon-div {
+  position: relative;
+  width: 100%;
+}
+
+.icon-div i {
+  position: absolute;
+  margin-top: 3%;
+  margin-left: -10%;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-input {
+  border: 2px solid #ccc;
+  background-color: transparent;
+  padding: 1.5%;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.reg-button {
+  border: none;
+  width: 100%;
+  background-color: var(--red);
+  color: var(--white);
+  margin-top: 5%;
+  padding: 1.5%;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.reg-button:hover {
+  background-color: transparent;
+  border: 1px solid rgb(150, 13, 13);
+  color: var(--red);
+  /* font-weight: bold; */
+}
+
+.reg-img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  padding-top: 38%;
+  margin-left: 13%;
+ 
+  /* transform: scaleX(-1); */
+}
+
+.form-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-img-div {
+  width: 80%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://res.cloudinary.com/blackgirlmagic/image/upload/v1713456623/poshCars/pexels-akos-szabo-145938-440731_hsggak.jpg");
+    border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.formm {
+  width: 70%;
+  margin: auto;
+}
+
+.terms {
+  color: var(--red);
+  text-decoration: none;
+}
+
+.terms:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.form-info {
+  text-align: center;
+  margin-bottom: 10%;
+  line-height: 1;
+}
+
+.form-info-p1 {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--red);
+}
+
+.form-info-p2 {
+  font-size: 14px;
+}
+
+
+

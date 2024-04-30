@@ -1,0 +1,54 @@
+{%extends 'poshcars/base.html' %}
+{%load static%}
+
+{%block title%}
+<title>forget password - POSH_CARS</title>
+{%endblock%}
+
+{%block content%}
+
+    <section class="reg-main">
+      <div class="log-img-div">
+        <img
+          src="https://res.cloudinary.com/blackgirlmagic/image/upload/v1713457698/poshCars/lex7-removebg-preview_kd5bi0.png"
+          class="log-img"
+          alt="car image"
+        />
+      </div>
+
+      <div class="form-div">
+        <form action="" method="get" class="form formm">
+          <div class="forget-icon-main-div">
+            <div class="forget-icon-div">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <div class="form-info">
+              <p class="form-info-p1 log">
+                Lost your password?Enter your details to recover
+              </p>
+              <p class="form-info-p2">Enter your details to proceed further</p>
+            </div>
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <div class="icon-div">
+              <input
+                type="email"
+                placeholder="ojonuyo@gmail.com"
+                name="email"
+                class="form-input"
+                required
+              />
+
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+          </div>
+
+          <p>
+            <button type="submit" class="reg-button">Recover</button>
+          </p>
+        </form>
+      </div>
+    </section>
+ {%endblock%}

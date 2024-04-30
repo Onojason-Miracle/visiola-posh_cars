@@ -1,0 +1,79 @@
+{%extends 'poshcars/base.html' %}
+{%load static%}
+
+{%block title%}
+<title>Login Page - POSH_CARS</title>
+{%endblock%}
+
+{%block content%}
+
+        <section class="reg-main">
+            <div class="log-img-div">
+
+                <img  src="https://res.cloudinary.com/blackgirlmagic/image/upload/v1713457698/poshCars/lex7-removebg-preview_kd5bi0.png" class="log-img" alt="car image"/>
+                
+               
+            </div>
+
+            <div class="form-div">
+                <form action="" method="get" class="form formm">
+                    <div class="form-info">
+                        <p class="form-info-p1">Login to your account</p>
+                        <p class="form-info-p2">Enter your details to proceed further</p>
+                    </div>
+                    <p>
+                       <div>
+                        <label  for="email">Email</label>
+                        <div class="icon-div">
+                            <input type="email" placeholder="ojonuyo@gmail.com" name="email" class="form-input" required/>
+
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                       </div>
+                    </p>
+
+                   
+
+                    <p>
+                       <div>
+                        <label  for="password">Password</label>
+                        <div class="icon-div">
+                            <input type="password" placeholder="password" name="password" class="form-input" required/>
+
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                       </div>
+                    </p>
+
+                   
+
+                    <p>
+                       
+                            <div class="remember">
+
+                                <div class="pwd-div"> 
+                                    
+                                    <input type="checkbox" id="agree" name="agree" class="checkbox">
+                                
+                                    <p class="forget-pwd">remember me
+                                       </p>
+                                </div>
+
+                              <label>
+                                <a href="forgot-pswd.html" target="_blank" class="terms">forgot password</a>
+                              </label>
+                                
+                                
+                            </div>
+                      
+                        <button type="submit" class="reg-button">Login</button>  
+                    </p>
+
+                   <p class="text-center">
+                    <label>Don't have an account? <a href="login.html" target="_blank" class="terms text-center">Signup</a></label>
+                   </p>
+                </form>
+            </div>
+        </section>
+
+        {%endblock%}

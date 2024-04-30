@@ -1,0 +1,89 @@
+{%extends 'poshcars/base.html' %}
+{%load static%}
+
+{%block title%}
+<title>Register - POSH_CARS</title>
+{%endblock%}
+
+{%block content%}
+
+        <section class="reg-main">
+            <div class="reg-img-div">
+
+                <img  src="https://res.cloudinary.com/blackgirlmagic/image/upload/v1713477636/poshCars/f663b620-9818-4ba6-a6ae-4e04238b3616-removebg-preview_dzad2s.png" class="reg-img" alt="car image"/>
+
+              
+                <!-- <img  src="https://res.cloudinary.com/blackgirlmagic/image/upload/v1713450357/poshCars/tes1_lkvwqp.jpg" class="reg-img"/> -->
+            </div>
+
+            <div class="form-div">
+                <form action="" method="get" class="form formm">
+                    <div class="form-info">
+                        <p class="form-info-p1">Sign Up to get started</p>
+                        <p class="form-info-p2">Enter your details to proceed further</p>
+                    </div>
+                    <p>
+                       <div>
+                        <label  for="email">Email</label>
+                        <div class="icon-div">
+                            <input type="email" placeholder="ojonuyo@gmail.com" name="email" class="form-input" required/>
+
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                       </div>
+                    </p>
+
+                    <p>
+                        <div>
+                            <label  for="firstname">Name</label>
+                        <div class="icon-div">
+                            <input type="text" placeholder="name" name="name" class="form-input" required/>
+
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        </div>
+                    </p>
+
+                    
+
+                    <p>
+                       <div>
+                        <label  for="password">Password</label>
+                        <div class="icon-div">
+                            <input type="password" placeholder="password" name="password" class="form-input" required/>
+
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                       </div>
+                    </p>
+
+                    <p>
+                        <div>
+                            <label  for="password"> Confirm Password</label>
+                        <div class="icon-div">
+                            <input type="password" placeholder="confirm password" name="password" class="form-input" required/>
+
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        </div>
+                    </p>
+
+                    <p>
+                       
+                            <div>
+                                <input type="checkbox" id="agree" name="agree" required>
+                                <label for="agree">I agree to the <a href="register.html" target="_blank" class="terms">terms and conditions</a></label>
+                            </div>
+                      
+                        <button type="submit" class="reg-button">Sign Up</button>  
+                    </p>
+
+                    <p class="text-center">
+                        <label>Already have an account? <a href="login.html" target="_blank" class="terms">Login</a></label>
+                    </p>
+                </form>
+            </div>
+        </section>
+
+      {%endblock%}
+

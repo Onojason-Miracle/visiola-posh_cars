@@ -1,0 +1,78 @@
+/* --red: rgb(150, 13, 13); */
+:root {
+  --bg-color: #1c1c1c;
+  --white: white;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-alfa: "Alfa Slab One", cursive;
+  --red: rgb(150, 13, 13);
+  --grey: #808080;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-jakarta);
+}
+
+.remember {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forget-pwd {
+  color: var(--red);
+  font-weight: bold;
+  margin-top: 10%;
+}
+
+.pwd-div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.log-img {
+  width: 100%;
+  height: 600px;
+  object-fit: contain;
+
+  margin-left: 15%;
+  padding-top: 35%;
+  /* transform: scaleX(-1); */
+}
+
+.log-img-div {
+  width: 80%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://res.cloudinary.com/blackgirlmagic/image/upload/v1713456623/poshCars/pexels-akos-szabo-145938-440731_hsggak.jpg");
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+.forget-icon-div {
+  border-top: 5px solid rgb(150, 13, 13);
+  height: 70px;
+  width: 70px;
+  margin: auto;
+  border-radius: 40%;
+  position: relative;
+}
+
+.forget-icon-div i {
+  font-size: 50px;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  color: var(--red);
+}
+
+.log {
+  line-height: 1.2;
+}

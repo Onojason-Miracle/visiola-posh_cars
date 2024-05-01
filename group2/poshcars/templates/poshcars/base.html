@@ -85,10 +85,43 @@
                             >Reviews</a
                           >
                         </li>
+
+                        {%if user.is_superuser%}
+                        <li><a href="{%url 'add_car'%}" target="_blank" class="nav-link"> Add Car</a></li>
+                
+                        {%endif%}
                        
                       </ul>
     
-                      <div>
+                      <div class="nav_btn_flex">
+                       
+
+                        {%if user.is_authenticated%}
+                        <!-- {%if user.is_superuser%}
+                
+                        <p> ADMIN {{user.first_name}}</p>
+                        {%endif%} -->
+
+                       <div class="nav_btn_name">
+                        <p>{{user.first_name}}</p>
+                        <p>{{ user.last_name|slice:":1" }}</p>
+                       </div>
+
+                        <button class="nav-btn">
+                          <a
+                            href="{%url 'logout'%}"
+                            target="_blank"
+                            class="nav-btn-link"
+                            >Logout</a
+                          >
+                        </button>
+                
+                        
+                
+                       
+                       
+                        {%else%}
+
                         <button class="nav-btn">
                           <a
                             href="{%url 'login'%}"
@@ -98,6 +131,7 @@
                           >
                         </button>
                       </div>
+                      {%endif%}
     
                       <button class="iconBtn">
                         <i class="fa-solid fa-bars"></i>
@@ -107,7 +141,7 @@
     
               </div>
 
-              
+             
               <!-- end of navbar -->
 
 
@@ -118,7 +152,7 @@
 
               <!-- <footer></footer> -->
 
-                <script src="{%static 'JS/home.js'%}"></script> 
-    <!-- <script src="../JS/nav.js"></script>
+                <!-- <script src="{%static 'JS/home.js'%}"></script>  -->
+   
   </body>
   </html>

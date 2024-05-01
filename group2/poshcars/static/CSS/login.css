@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: var(--font-jakarta);
+  font-family: "poppins";
 }
 
 .remember {
@@ -35,6 +35,11 @@ body {
   gap: 5px;
 }
 
+
+.log-terms {
+  color: var(--red);
+  text-decoration: none;
+}
 .log-img {
   width: 100%;
   height: 600px;
@@ -43,6 +48,15 @@ body {
   margin-left: 15%;
   padding-top: 35%;
   /* transform: scaleX(-1); */
+}
+
+.formlog-div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+   height: 450px;
+  justify-content: center;
+  align-items: center;
 }
 
 .log-img-div {
@@ -75,4 +89,203 @@ body {
 
 .log {
   line-height: 1.2;
+}
+
+.error{
+  color: var(--red);
+}
+
+
+
+/* media query */
+
+
+@media only screen and (max-width: 400px) {
+  
+  .reg-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0;
+   
+  }
+
+  .log-img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    padding-top: 15%;
+    margin-left: 0;
+   
+  }
+
+  .log-img-div {
+    width: 100%;
+    height: 300px;
+    border-radius: 0px;
+    margin-bottom: 5%;
+  }
+
+  
+ 
+  .pwd-div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 3%;
+    margin-right: 2%;
+    font-size: 14px;
+  }
+
+  .log-terms {
+    font-size: 14px;
+  }
+
+  .forget-pwd {
+    color: var(--red);
+    font-weight: bold;
+    margin-top: 10%;
+    font-size: 14px;
+  }
+
+  .formlog-div{
+    margin-top: 8%;
+  }
+
+}
+
+@media only screen and (min-width: 401px) and (max-width: 600px){
+
+  .reg-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0;
+   
+  }
+
+  .log-img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    padding-top: 10%;
+    margin-left: 0;
+   
+  }
+
+  .log-img-div {
+    width: 100%;
+    height: 300px;
+    border-radius: 0px;
+    margin-bottom: 5%;
+  }
+
+  .formlog-div{
+    margin-top: 8%;
+  }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 601px) and (max-width: 767px){
+  .reg-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0;
+   
+  }
+
+  .log-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    padding-top: 0;
+    margin-left: 0;
+   
+  }
+
+  .log-img-div {
+    width: 100%;
+    height: 300px;
+    border-radius: 0px;
+    margin-bottom: 5%;
+  }
+
+  .formlog-div{
+    margin-top: 8%;
+  }
+
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .reg-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0;
+   
+  }
+
+  .log-img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+    padding-top: 0;
+    margin-left: 0;
+   
+  }
+
+  .log-img-div {
+    width: 100%;
+    height: 400px;
+    border-radius: 0px;
+    margin-bottom: 5%;
+    
+  }
+
+  .formlog-div{
+    margin-top: 10%;
+  }
+  
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1023px){
+  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1023px) and (max-width: 1200px) {
+  .log-img {
+    width: 100%;
+    height: 750px;
+    object-fit: contain;
+    padding-top: 15%;
+    margin-left: 15%;
+   
+  }
+
+  .reg-main {
+    gap: 10%;
+  }
+
+ 
+
+  .form{
+    width: 100%;
+   
+  }
+
+  .log-img-div {
+   
+    height: 450px;
+  }
+  
 }

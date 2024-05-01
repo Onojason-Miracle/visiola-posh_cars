@@ -17,34 +17,48 @@
             </div>
 
             <div class="form-div">
-                <form action="" method="get" class="form formm">
+                <form action="" method="POST" class="form">
+                    {%csrf_token%}
                     <div class="form-info">
                         <p class="form-info-p1">Sign Up to get started</p>
                         <p class="form-info-p2">Enter your details to proceed further</p>
                     </div>
-                    <p>
-                       <div>
-                        <label  for="email">Email</label>
-                        <div class="icon-div">
-                            <input type="email" placeholder="ojonuyo@gmail.com" name="email" class="form-input" required/>
 
-                            <i class="fa-solid fa-envelope"></i>
+                   
+
+                    <p>
+                        <div>
+                            <label  for="f-name">Firstname</label>
+                        <div class="icon-div">
+                            <input type="text" placeholder="first name" name="f-name" class="form-input" required/>
+
+                            <i class="fa-solid fa-user reg-icon"></i>
                         </div>
-                       </div>
+                        </div>
+                    </p>
+
+
+                    <p>
+                        <div>
+                            <label  for="l-name">Lastname</label>
+                        <div class="icon-div">
+                            <input type="text" placeholder="last name" name="l-name" class="form-input" required/>
+
+                            <i class="fa-solid fa-user reg-icon"></i>
+                        </div>
+                        </div>
                     </p>
 
                     <p>
                         <div>
-                            <label  for="firstname">Name</label>
-                        <div class="icon-div">
-                            <input type="text" placeholder="name" name="name" class="form-input" required/>
-
-                            <i class="fa-solid fa-user"></i>
+                         <label  for="email">Email</label>
+                         <div class="icon-div">
+                             <input type="email" placeholder="ojonuyo@gmail.com" name="email" class="form-input" required/>
+ 
+                             <i class="fa-solid fa-envelope reg-icon"></i>
+                         </div>
                         </div>
-                        </div>
-                    </p>
-
-                    
+                     </p>
 
                     <p>
                        <div>
@@ -52,34 +66,34 @@
                         <div class="icon-div">
                             <input type="password" placeholder="password" name="password" class="form-input" required/>
 
-                            <i class="fa-solid fa-lock"></i>
+                            <i class="fa-solid fa-lock reg-icon"></i>
                         </div>
                        </div>
                     </p>
 
                     <p>
                         <div>
-                            <label  for="password"> Confirm Password</label>
+                            <label  for="c-password"> Confirm Password</label>
                         <div class="icon-div">
-                            <input type="password" placeholder="confirm password" name="password" class="form-input" required/>
+                            <input type="password" placeholder="confirm password" name="c-password" class="form-input" required/>
 
-                            <i class="fa-solid fa-lock"></i>
+                            <i class="fa-solid fa-lock reg-icon"></i>
                         </div>
                         </div>
                     </p>
 
                     <p>
                        
-                            <div>
-                                <input type="checkbox" id="agree" name="agree" required>
+                            <div class="agree">
+                                <input type="checkbox" id="agree" name="agree" class="reg-checkbox" required>
                                 <label for="agree">I agree to the <a href="register.html" target="_blank" class="terms">terms and conditions</a></label>
                             </div>
                       
                         <button type="submit" class="reg-button">Sign Up</button>  
                     </p>
 
-                    <p class="text-center">
-                        <label>Already have an account? <a href="login.html" target="_blank" class="terms">Login</a></label>
+                    <p class="have-account">
+                        <label class="agree">Already have an account?<a href="{%url 'login'%}" target="_blank" class="terms">Login</a></label>
                     </p>
                 </form>
             </div>

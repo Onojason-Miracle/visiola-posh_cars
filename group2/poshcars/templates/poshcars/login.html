@@ -15,19 +15,29 @@
                
             </div>
 
-            <div class="form-div">
-                <form action="" method="get" class="form formm">
+            <div class="formlog-div">
+            
+           
+                <form action="" method="POST" class="form">
+                    {%csrf_token%}
                     <div class="form-info">
                         <p class="form-info-p1">Login to your account</p>
                         <p class="form-info-p2">Enter your details to proceed further</p>
                     </div>
+
+                    {%if error%}
+
+                   <p class="error">{{error}}</p> 
+                    
+                    {%endif%}
+
                     <p>
                        <div>
                         <label  for="email">Email</label>
                         <div class="icon-div">
                             <input type="email" placeholder="ojonuyo@gmail.com" name="email" class="form-input" required/>
 
-                            <i class="fa-solid fa-envelope"></i>
+                            <i class="fa-solid fa-envelope "></i>
                         </div>
                        </div>
                     </p>
@@ -40,7 +50,7 @@
                         <div class="icon-div">
                             <input type="password" placeholder="password" name="password" class="form-input" required/>
 
-                            <i class="fa-solid fa-lock"></i>
+                            <i class="fa-solid fa-lock "></i>
                         </div>
                        </div>
                     </p>
@@ -53,14 +63,14 @@
 
                                 <div class="pwd-div"> 
                                     
-                                    <input type="checkbox" id="agree" name="agree" class="checkbox">
+                                    <input type="checkbox" id="agree" name="agree" class="log-checkbox">
                                 
                                     <p class="forget-pwd">remember me
                                        </p>
                                 </div>
 
                               <label>
-                                <a href="forgot-pswd.html" target="_blank" class="terms">forgot password</a>
+                                <a href="forgot-pswd.html" target="_blank" class="log-terms">forgot password?</a>
                               </label>
                                 
                                 
@@ -70,7 +80,7 @@
                     </p>
 
                    <p class="text-center">
-                    <label>Don't have an account? <a href="login.html" target="_blank" class="terms text-center">Signup</a></label>
+                    <label>Don't have an account? <a href="{%url 'register'%}" target="_blank" class="terms text-center">Create an account</a></label>
                    </p>
                 </form>
             </div>

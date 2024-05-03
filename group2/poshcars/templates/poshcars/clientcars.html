@@ -9,7 +9,7 @@
 
 <section class="clientMain">
 
-   <div class="clientMain-div">
+  <div class="clientMain-div">
     
     
     <form action="" method="post" class="form formm">
@@ -17,53 +17,41 @@
 
 
 
-        <div class="hello">
-            <!-- 
-                   <div>
+        <!-- <div class="hello">
+                  <div>
                     <label for="availability" class="form-label">Availability:</label><br/>
                     <input type="text" id="availability" name="availability" class="form-control"  required>
-                   </div>
-                     -->
-
-                     <div>
+                  </div>
+                    -->
+                    <!-- <div>
                         <label for="name" class="form-label">Your Name:</label><br/>
                         <input type="text" id="name" name="name" class="form-control"  required>
-                       </div>
-
-                     <div>
+                      </div>
+                    <div>
                         <label for="phone" class="form-label">Contact Phone Number:</label><br/>
                         <input type="tel" id="phone" name="phone" class="form-control"  required>
-                       </div>
-            
+                    </div>         
                     
                   <div>
                     <label for="email" class="form-label">Email Address:</label><br/>
                     <input type="email" id="email" name="email" class="form-control"  required>
                   </div>
-                  </div>
-
-       <div class="hello">
-
-       <div>
+                  </div> --> 
+      <!-- <div class="hello">
+      <div>
         <label for="make" class="form-label">Car Make:</label><br/>
         <input type="text" id="make" name="make" class="form-control"required>
-       </div>
-        
+      </div>       
       <div>
         <label for="model" class="form-label">Car Model:</label><br/>
         <input type="text" id="model" name="model" class="form-control"required>
       </div>
-
-       <div>
+      <div>
         <label for="year" class="form-label">Year of Manufacture:</label><br/>
         <input type="number" id="year" name="year" class="form-control"required>
-       </div>
-       </div>
-
-        
-        <div class="hello">
-          
-        
+      </div>
+      </div>      
+        <div class="hello">         
       <div>
         <label for="mileage" class="form-label">Mileage (in kilometers):</label><br/>
         <input type="number" id="mileage" name="mileage" class="form-control" required>
@@ -81,11 +69,9 @@
       </div>
 
         </div>
-        
-      
-        
+
       <div class="hello">
-       
+      
       <div>
         <label for="doors" class="form-label">Number of Doors:</label><br/>
         <input type="number" id="doors" name="doors" class="form-control"  required>
@@ -94,17 +80,13 @@
       <div>
         <label for="registration" class="form-label">Car Registration Number:</label><br/>
         <input type="text" id="registration" name="registration" class="form-control"  required>
-       </div>
+      </div>
 
-     <div>
+    <div>
         <label for="rate" class="form-label">Daily Rental Rate:</label><br/>
         <input type="number" id="rate" name="rate"  class="form-control" required>
-     </div>
+    </div>
       </div>
-      
-     
-
-      
 
       <div class="hello">
       <div>
@@ -112,31 +94,42 @@
         <input type="text" id="insurance" name="insurance" class="form-control" required>
       </div>
 
-       <div>
+      <div>
         <label for="photos" class="form-label">Upload Car Photos:</label><br/>
         <input type="file" id="photos" name="photos" accept="image/*" multiple required class="form-control">
-       </div>
+      </div>
 
-       <div>
+    <div>
         <label for="transmission" class="form-label">Transmission Type:</label><br/>
         <select id="transmission" name="transmission" class="form-select" required>
             <option value="automatic">Automatic</option>
             <option value="manual">Manual</option>
         </select>
-       </div>
       </div>
-        
-       
-      
-        
-      
-       <p class="text-center">
+      </div>
+
+      <p class="text-center">
         <button class="client-btn">Submit</button>
-       </p>
-    </form>
+      </p>
+    </form> -->
 
+  <!-- </div> -->
 
-   </div>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form_key %}
+        <div class="my-form">
+        <div class="form-error">{{ field.errors }}</div> 
+        <div class="form-label">{{ field.label_tag }}</div> 
+        <div class="form-field">{{ field }}</div> 
+        </div>
+    {% endfor %}
+    <p class="text-center">
+      <button type="submit" class="client-btn">Add</button>
+    </p>    
+    
+</form>
+
 </section>
       
 {%endblock%}

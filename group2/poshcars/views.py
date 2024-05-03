@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 
+from .models import RentalAuth
+from .forms import RentalAuthForm
+
 # Create your views here.
 
 def home(request):
@@ -25,12 +28,12 @@ def register(request):
         c_password = request.POST.get("c-password")
         
         if User.objects.filter(email=email).exists():
-         return render(request, "poshcars/register.html", {"error": 'sorry email already Exists'})
-     
+            return render(request, "poshcars/register.html", {"error": 'sorry email already Exists'})
+    
         if password != c_password:
-         return render(request, "poshcars/register.html", {"error": 'sorry password does not match'})
-     
-          # creating the user
+            return render(request, "poshcars/register.html", {"error": 'sorry password does not match'})
+    
+        # creating the user
 
         user = User(email = email, first_name = first_name, last_name = last_name, password = make_password(password))
 
@@ -41,21 +44,21 @@ def register(request):
 
 def login(request):
     if request.method == "POST":
-      email = request.POST.get("email")
-      password = request.POST.get("password")
+        email = request.POST.get("email")
+        password = request.POST.get("password")
 
-      user = authenticate(email = email, password = password)
+        user = authenticate(email = email, password = password)
 
-      if user is not None:
-         if user.is_active:
-            login(request, user)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
             return redirect ('user_dashboard')
-         else:
-          return render(request, 'poshcars/login.html', {'error': 'sorry this user is not active'})
-         
-      else:
-          return render(request, 'poshcars/login.html', {'error': 'invalid user details, user does not exist'})
-      
+        else:
+            return render(request, 'poshcars/login.html', {'error': 'sorry this user is not active'})
+        
+    else:
+        return render(request, 'poshcars/login.html', {'error': 'invalid user details, user does not exist'})
+    
     return render(request, 'poshcars/login.html')
 
 def add_car(request):
@@ -64,9 +67,17 @@ def add_car(request):
 def user_dashboard(request):
     return render(request, 'poshcars/dashbaord.html')
 
-def external_car(request):
-    return render(request, 'poshcars/clientcars.html')
-
 def Logout(request):
     logout(request)
     return redirect('login')
+
+def client_cars(request):
+    if request.method=='POST':
+        form = RentalAuthForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('client_cars')
+    else:
+        form = RentalAuthForm
+
+    return render(request, 'poshcars/clientcars.html',{'form_key': form})

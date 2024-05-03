@@ -51,14 +51,13 @@ color: var(--white);
 .hello{
     display: flex;
     justify-content: space-between;
-   margin-top: 1%;
-   border-bottom: 2px solid white;
+  margin-top: 1%;
+  border-bottom: 2px solid white;
   padding-bottom: 2%;
 }
 
 .client-btn{
-   
- background-color: transparent;
+  background-color: transparent;
     margin: auto;
     margin-top: 5%;
     padding: 12px 150px ;
@@ -75,9 +74,9 @@ color: var(--white);
     border: none;
     color: var(--bg-color);
   
-   }
-   
-.form-control{
+  }
+  
+.form-field{
     background-color: var(--greyish);
 }
 

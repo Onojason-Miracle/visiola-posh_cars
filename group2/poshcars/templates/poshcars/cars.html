@@ -10,5 +10,44 @@
 
 
 {%block content%}
+<h1>Hello World</h1>
+<p>This is Cars listing page</p>
 
+<div class="cars_wrapper ">
+    {%for allcar in allcars%}
+    <div class="cars_wrapper_main">
+       <div class="cars_wrapper_inner">
+        <div class="product">
+            <div class="cars_img_div">
+              <img src="{{allcar.image.url}}" alt="Product Image">
+            </div>
+            
+              <div class="product-name">{{allcar.brand.name}}</div>
+            
+           <div >
+              
+              <div class="discounted-price"><b>Rental price</b><br/>#{{allcar.rental_price_per_day}}</div>
+           </div>
+  
+           <a href="{%url 'car-details' allcar.id%}" class="anchor">
+              <div class="product-name">More Details</div>
+            </a>
+          </div>
+  
+        
+  
+            <!-- <button class="btn btn-warning"><a href="" class="anchor">Rent Car</a></button> -->
+          {%if user.is_superuser%}
+        <div class="cars_admin_btn">
+          <button class="btn btn-danger"><a href="{%url 'delete' allcar.id%}" class="anchor">delete</a></button>
+      
+          <button class="btn btn-dark"><a href="{%url 'update' allcar.id%}" class="anchor">Update</a></button>
+        </div>
+          {%endif%}
+       </div>
+</div>
+
+  
+{%endfor%}
+</div> 
 {%endblock%}

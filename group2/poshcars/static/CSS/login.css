@@ -36,6 +36,17 @@ body {
 }
 
 
+.log-main {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+ 
+  
+ 
+}
+
 .log-terms {
   color: var(--red);
   text-decoration: none;

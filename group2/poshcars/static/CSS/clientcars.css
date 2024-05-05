@@ -33,12 +33,12 @@
     background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)) ;
     width: 80%;
     margin: auto;
-    padding-bottom: 5%;
+   
     
 }
 
 .formm{
-width: 90%;
+width: 60%;
 margin: auto;
 color: var(--white);
 }
@@ -48,13 +48,6 @@ color: var(--white);
     text-align: center;
 }
 
-.hello{
-    display: flex;
-    justify-content: space-between;
-  margin-top: 1%;
-  border-bottom: 2px solid white;
-  padding-bottom: 2%;
-}
 
 .client-btn{
   background-color: transparent;
@@ -76,9 +69,46 @@ color: var(--white);
   
   }
   
-.form-field{
-    background-color: var(--greyish);
+
+
+/* Form fields */
+.form-field {
+ 
+ 
 }
+
+/* Label */
+.form-label {
+  font-weight: bold;
+}
+
+.add-form-label{
+  color: var(--bg-color);
+}
+
+/* Form fields */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="file"],
+select, textarea {
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 3%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+
+
+
+/* Error messages */
+.form-error {
+  color: red;
+}
+
 
 
 

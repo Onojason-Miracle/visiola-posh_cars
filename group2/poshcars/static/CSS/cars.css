@@ -16,6 +16,70 @@
     font-family: var(--font-jakarta);
   }
 
+  .cars_wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 7%;
+    margin-bottom: 2%;
+   
+  }
+
+  .cars_wrapper_main{
+  
+   border: 1px solid black;
+  
+    
+  }
+
+  .cars_wrapper_inner{
+    width: 90%;
+   margin: auto;
+  }
+
+  .cars_img_div{
+    width: 350px;
+    height: 320px;
+  }
+  .cars_img_div img{
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+    
+    
+  }
+
+  .cars_admin_btn{
+    display: flex;
+  }
+
+  /* car details css */
+
+.details_wrapper{
+  display: flex;
+  justify-content: space-between;
+  gap: 20%;
+  width: 70%;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.details_imageDiv{
+  width: 40%;
+}
+
+.details{
+  width: 50%;
+}
+
+.details_image{
+  width: 500px;
+  height: 600px;
+  object-fit: cover;
+}
    /* media query */
 
 

@@ -1,12 +1,11 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 
 # to do registration amd login
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
-
-from .models import RentalAuth
-from .forms import RentalAuthForm
+from .forms import RentalAuthForm, CarForm, UpdateCar
+from .models import Car
 
 # Create your views here.
 
@@ -14,7 +13,33 @@ def home(request):
     return render(request, 'poshcars/home.html')
 
 def cars(request):
-    return render(request, 'poshcars/cars.html')
+    allcars = Car.objects.all()
+    return render (request, 'poshcars/cars.html', {'allcars':allcars})
+
+
+def carsDetails(request, pid):
+    details = Car.objects.get(id=pid)
+    return render(request, 'poshcars/cardetails.html', {'posts':details})
+
+def Update(request, pid):
+    post = get_object_or_404(Car, id=pid)
+    if request.method == "POST":
+        form = UpdateCar(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('car_rental')
+    else:
+        form = UpdateCar(instance=post)
+        
+    return render(request, 'poshcars/update.html',{'post':post, 'form':form})
+
+
+def Delete(request, pid):
+    caritem = get_object_or_404(Car, id=pid)
+    if request.method == "POST":
+         caritem.delete()
+         return redirect('car_rental')
+    return render(request,'poshcars/delete.html', {'caritem':caritem})
 
 def reviews(request):
     return render(request, 'poshcars/reviews.html')
@@ -35,37 +60,49 @@ def register(request):
     
         # creating the user
 
-        user = User(email = email, first_name = first_name, last_name = last_name, password = make_password(password))
+        user = User(email = email, first_name = first_name, last_name = last_name,username=email, password = make_password(password))
 
         user.save()
         return redirect('login')
         
     return render(request, 'poshcars/register.html')
 
-def login(request):
+def loginView(request):
     if request.method == "POST":
         email = request.POST.get("email")
         password = request.POST.get("password")
 
-        user = authenticate(email = email, password = password)
+        user = authenticate(username = email, password = password)
 
         if user is not None:
             if user.is_active:
                 login(request, user)
-            return redirect ('user_dashboard')
-        else:
-            return render(request, 'poshcars/login.html', {'error': 'sorry this user is not active'})
+                return redirect ('user_dashboard')
+            else:
+                return render(request, 'poshcars/login.html', {'error': 'sorry this user is not active'})
         
-    else:
-        return render(request, 'poshcars/login.html', {'error': 'invalid user details, user does not exist'})
+        else:
+            return render(request, 'poshcars/login.html', {'error': 'invalid user details, user does not exist'})
     
     return render(request, 'poshcars/login.html')
 
+
+
+
+
 def add_car(request):
-    return render(request, 'poshcars/addcars.html')
+    if request.method == "POST":
+        my_form = CarForm(request.POST, request.FILES) 
+        if my_form.is_valid():
+            my_form.save()
+            return redirect('car_rental')
+    else:
+        my_form = CarForm()  
+
+    return render(request, 'poshcars/addcars.html', {"form": my_form})  
 
 def user_dashboard(request):
-    return render(request, 'poshcars/dashbaord.html')
+    return render(request, 'poshcars/dashboard.html')
 
 def Logout(request):
     logout(request)
@@ -76,8 +113,10 @@ def client_cars(request):
         form = RentalAuthForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('client_cars')
+            return redirect('home')
     else:
         form = RentalAuthForm
+        # return("error")
 
     return render(request, 'poshcars/clientcars.html',{'form_key': form})
+

@@ -1,0 +1,39 @@
+{%extends 'poshcars/base.html' %}
+{%load static%}
+
+{%block title%}
+<title>Car Update - POSH_CARS</title>
+{%endblock%}
+
+
+{%block content%}
+<h1>Car Update details here</h1>
+
+
+<div class="mx-auto p-2" style="width: 40%;">
+
+    <h2  class="text-center">Update {{post.brand.name}} {{post.model}}</h2>
+    
+    
+    <form method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+       
+        {%for field in form%}
+        
+    
+        <div class="myform">
+        <div class="text-danger">{{field.errors}}</div>
+          <div class="form-label">{{field.label_tag}}</div>
+            <div class="form-control">{{field}}</div>
+        </div>
+    
+        {%endfor%}
+    
+        <button type="submit" name="submit" class="btn btn-primary">Update Car</button>
+    </form>
+    
+    </div>
+
+
+
+{%endblock%}

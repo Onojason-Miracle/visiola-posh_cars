@@ -4,7 +4,24 @@
 {%block title%}
 <title>Add Cars - POSH_CARS</title>
 {%endblock%}
-<h1 class="text-center mt-5">admin add car here</h1>
+
 {%block content%}
 
+<h1 class="text-center mt-5">admin add car here</h1>
+<div class="">
+    <form method="post" enctype="multipart/form-data" class="formm">
+        {% csrf_token %}
+       
+        {% for field in form %}
+            <div class="myform">
+                <div class="text-danger">{{ field.errors }}</div>
+                <div class="add-form-label">{{ field.label_tag }}</div>
+                <div class="">{{ field }}</div>
+            </div>
+        {% endfor %}
+    
+        <button type="submit" name="submit" class="btn btn-primary">Create Product</button>
+    </form>
+    
+</div>
 {%endblock%}

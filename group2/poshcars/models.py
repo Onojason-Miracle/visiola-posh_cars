@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
+from django.utils import timezone
 
 class CarBrand(models.Model):
     name = models.CharField(max_length=20, unique=True)
@@ -99,11 +100,13 @@ class Rental(models.Model):
     duration = models.IntegerField()
     quantity = models.IntegerField()
     payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES)
-    # car = models.ForeignKey(Car, on_delete=models.CASCADE)
-    # Add more fields as needed
+    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=True )
+    car = models.ForeignKey(Car,on_delete=models.CASCADE,blank=True, null=True )
+    startdate = models.DateField(default=timezone.now,)
+    enddate = models.DateField(blank=True, null=True)
     
     def __str__(self):
-        return f"{self.quantity} cars rented for {self.get_duration_display()} with {self.payment_method}"
+        return f"{self.quantity} cars rented for with {self.payment_method}"
 
 
 

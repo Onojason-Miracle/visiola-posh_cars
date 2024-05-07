@@ -1,11 +1,12 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib import messages
+from django.utils import timezone
 
 # to do registration amd login
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
-from .forms import RentalAuthForm, CarForm, UpdateCar
+from .forms import CarForm, UpdateCar
 from .models import Car, Rental
 
 # Create your views here.
@@ -92,7 +93,7 @@ def loginView(request):
 
 def Rentcar(request,car_id):
     rent = Car.objects.get(id=car_id)
-    return render(request, "poshcars/rentcar.html", {"posts": rent})
+    return render(request, "poshcars/rentcar.html", {"posts": rent,'id':car_id})
 
 
 
@@ -103,11 +104,21 @@ def Rental_form(request):
         quantity = request.POST.get('quantity')
         payment_method = request.POST.get('payment_method')
         
-        rental = Rental(duration=duration, quantity=quantity, payment_method=payment_method)
-        rental.save()
+        carId = request.POST.get('car')
+        try:
+            currentCar = Car.objects.get(id=int(carId))
+            rental = Rental(duration=duration, quantity=quantity, payment_method=payment_method,
+            user = request.user,
+            car=currentCar,
+            enddate = timezone.now() + timezone.timedelta(days=int(duration)))
+            rental.save()
+            
+            # Adding a success message for the users
+            messages.success(request, 'Form submitted successfully!')
+        except Car.DoesNotExist:
+            return render(request, 'poshcars/rentcar.html',{"msg":"car does not exist"})
+            
         
-        # Adding a success message for the users
-        messages.success(request, 'Form submitted successfully!')
         
         # Redirect to the user dashboard
         return redirect('user_dashboard')
@@ -128,7 +139,8 @@ def add_car(request):
     return render(request, 'poshcars/addcars.html', {"form": my_form})  
 
 def user_dashboard(request):
-    return render(request, 'poshcars/dashboard.html')
+    userrental = Rental.objects.filter(user = request.user)
+    return render(request, 'poshcars/dashboard.html', {'userrental':userrental})
 
 def Logout(request):
     logout(request)

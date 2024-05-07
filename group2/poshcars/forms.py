@@ -1,10 +1,5 @@
 from django import forms
-from .models import Car, CarBrand, RentalAuth
-
-class RentalAuthForm(forms.ModelForm):
-    class Meta:
-        model = RentalAuth
-        fields = '__all__'    
+from .models import Car, CarBrand   
         
         
         

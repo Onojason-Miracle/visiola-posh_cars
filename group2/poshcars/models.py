@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class CarBrand(models.Model):
     name = models.CharField(max_length=20, unique=True)
@@ -81,6 +82,41 @@ class Car(models.Model):
     
     def __str__(self):
         return f"{self.brand.name} {self.model}"
+    
+    
+    
+    
+class Rental(models.Model):
+   
+    
+    PAYMENT_METHOD_CHOICES = [
+        ('credit_card', 'Credit Card'),
+        ('cash', 'Cash'),
+        
+    ]
+    
+   
+    duration = models.IntegerField()
+    quantity = models.IntegerField()
+    payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES)
+    # car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    # Add more fields as needed
+    
+    def __str__(self):
+        return f"{self.quantity} cars rented for {self.get_duration_display()} with {self.payment_method}"
+
+
+
+
+# class CustomUser(AbstractUser):
+#     nin = models.CharField(max_length=20,)
+#     phonenumber = models.IntegerField()
+#     drivers_license = models.CharField(max_length=20)
+#     email = models.CharField(max_length=50, unique=True)
+
+#     REQUIRED_FIELDS = [ 'nin', 'phonenumber', 'drivers_license']
+#     USERNAME_FIELD = 'email'
+
 
 
 

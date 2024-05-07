@@ -8,7 +8,7 @@
 {%block home%}
 
 <section>
-  <div class="vid-div">
+  <div class="vid-div" >
     <div class="home">
       <div class="video-container">
         <video autoplay loop muted>
@@ -18,7 +18,7 @@
           />
           Your browser does not support the video tag.
         </video>
-        <div class="overlay">
+        <div class="overlay" >
           {%endblock%}
 
 {%block content%}
@@ -26,7 +26,7 @@
 
 
 
-              <div class="content">
+              <div class="content" id="content-home">
                 <div class="content-1">
                   <h3 class="animated-text">Welcome to Posh Cars</h3>
                   <h1 class="animated-text">Luxury Cars,Your Way!</h1>
@@ -36,10 +36,19 @@
                     and performance—all at your fingertips.
                   </p>
 
+                  
+
                   <div class="buttons">
 
+                    {%if user.is_authenticated%}
+                    {%if user.is_superuser%}
                     <button class="home-btn">
-                      <a target="_blank" href="{%url 'login'%}">Rent a car</a>
+
+                      
+                      <a target="_blank" href="{%url 'car_rental'%}"
+
+                        >Rent Out Your Car</a
+                      >
                     </button>
 
                     <button class="home-btn">
@@ -50,6 +59,45 @@
                         >Rent Out Your Car</a
                       >
                     </button>
+                    
+                    {%endif%}
+
+                    <button class="home-btn">
+
+                      
+                      <a target="_blank" href="{%url 'car_rental'%}"
+
+                        >Rent a car</a
+                      >
+                    </button>
+
+                  
+
+                    <button class="home-btn">
+
+                      
+                      <a target="_blank" href="{%url 'client_cars'%}"
+
+                        >Rent Out Your Car</a
+                      >
+                    </button>
+
+                  {%else%}
+
+                    <button class="home-btn">
+                      <a target="_blank" href="{%url 'login'%}">Rent a car</a>
+                    </button>
+                  
+                    <button class="home-btn">
+
+                      
+                      <a target="_blank" href="{%url 'login'%}"
+
+                        >Rent Out Your Car</a
+                      >
+                    </button>
+
+                    {%endif%}
                   </div>
                 </div>
               </div>

@@ -1,0 +1,50 @@
+{%extends 'poshcars/base.html' %} {%load static%} {%block title%}
+<title>Car Rental - POSH_CARS</title>
+{%endblock%} {%block content%}
+<div class="rentalDiv">
+   <div class="rentalDiv-heading">
+    <h2 >{{ posts.brand.name }} {{ posts.model }}</h2>
+
+    <h3 id="price">Price: {{ posts.rental_price_per_day  }}</h3>
+   </div>
+
+<form method="post" action="{% url 'rentcarform' %}">
+  {% csrf_token %}
+
+ 
+
+  <label for="duration">Duration</label>
+  <input type="number" id="duration" name="duration" />
+
+  <label for="quantity">Quantity</label>
+  <input type="number" id="quantity" name="quantity"/>
+
+  
+
+  <!-- Add form fields for payment method -->
+  <label for="payment_method">Payment Method:</label>
+  <select id="payment_method" name="payment_method">
+    <option value="credit_card">Credit Card</option>
+    <option value="paypal">Cash</option>
+   
+  </select>
+
+ <div class="text-center">
+    <button type="submit" class="rentcar-btn">Submit</button>
+ </div>
+</form>
+</div>
+
+{%endblock%}
+
+
+<!-- 
+  <p>
+    <label for="start_date">Date rented:</label>
+    <input type="date" id="start_date" name="start_date" />
+  </p>
+
+  <p>
+    <label for="end_date">expected return date:</label>
+    <input type="date" id="end_date" name="end_date" />
+  </p> -->

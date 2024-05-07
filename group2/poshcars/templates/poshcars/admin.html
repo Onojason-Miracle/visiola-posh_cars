@@ -1,0 +1,179 @@
+ <!-- navbar here -->
+
+ <div class="nav-div">
+      <nav class="navbar">
+        <div class="navbar-wrapper">
+          <div class="navbar-brand">
+            <a href="{%url 'home'%}" target="_blank" class="logo">
+              <img
+                src="https://res.cloudinary.com/blackgirlmagic/image/upload/v1714993829/poshCars/posh_cars_Logo_nbzhff.png"
+              />
+            </a>
+          </div>
+
+       
+
+
+         
+
+          <ul class="navbar-links ">
+            <li class="first-li">
+              <a href="{%url 'home'%}" target="_blank" class="nav-link">Home</a>
+            </li>
+
+            <li>
+              <a href="{%url 'car_rental'%}" target="_blank" class="nav-link"
+                >Cars</a
+              >
+            </li>
+
+            <li>
+              <a href="{%url 'reviews'%}" target="_blank" class="nav-link"
+                >Reviews</a
+              >
+            </li>
+
+            {%if user.is_superuser%}
+            <li>
+              <a href="{%url 'add_car'%}" target="_blank" class="nav-link">
+                Add Car</a
+              >
+            </li>
+
+            {%endif%}
+          </ul>
+
+          <div class="nav_btn_flex">
+            {%if user.is_authenticated%} {%if user.is_superuser%}
+
+            <p class="mt-3">ADMIN {{user.first_name}}</p>
+            {%endif%}
+
+            <div class="nav_btn_name">
+              <p>{{user.first_name}}</p>
+              <p>{{ user.last_name|slice:":1" }}</p>
+            </div>
+
+            <button class="nav-btn">
+              <a href="{%url 'logout'%}" target="_blank" class="nav-btn-link"
+                >Logout</a
+              >
+            </button>
+
+            {%else%}
+
+            <button class="nav-btn">
+              <a href="{%url 'login'%}" target="_blank" class="nav-btn-link"
+                >Rent a car</a
+              >
+            </button>
+          </div>
+          {%endif%}
+        </div>
+        
+
+        <!-- mobile navbar -->
+        <div class="mobileview">
+          <div class="navbar-container">
+            <div class="navbar-brand">
+              <a href="{%url 'home'%}" target="_blank" class="logo">
+                <img
+                  src="https://res.cloudinary.com/blackgirlmagic/image/upload/v1714993829/poshCars/posh_cars_Logo_nbzhff.png"
+                />
+              </a>
+            </div>
+
+            <ul class="mobile-navbar-links">
+              <li class="first-li">
+                <a href="{%url 'home'%}" target="_blank" class="nav-link"
+                  >Home</a
+                >
+              </li>
+
+              <li>
+                <a href="{%url 'car_rental'%}" target="_blank" class="nav-link"
+                  >Cars</a
+                >
+              </li>
+
+              <li>
+                <a href="{%url 'reviews'%}" target="_blank" class="nav-link"
+                  >Reviews</a
+                >
+              </li>
+
+              {%if user.is_superuser%}
+              <li>
+                <a href="{%url 'add_car'%}" target="_blank" class="nav-link">
+                  Add Car</a
+                >
+              </li>
+
+              {%endif%}
+            </ul>
+
+            <div class="nav_btn_flex">
+              {%if user.is_authenticated%} {%if user.is_superuser%}
+
+              <p class="mt-3">ADMIN {{user.first_name}}</p>
+              {%endif%}
+
+              <div class="nav_btn_name">
+                <p>{{user.first_name}}</p>
+                <p>{{ user.last_name|slice:":1" }}</p>
+              </div>
+
+              <button class="nav-btn">
+                <a href="{%url 'logout'%}" target="_blank" class="nav-btn-link"
+                  >Logout</a
+                >
+              </button>
+
+              {%else%}
+
+              <button class="nav-btn">
+                <a href="{%url 'login'%}" target="_blank" class="nav-btn-link"
+                  >Rent a car</a
+                >
+              </button>
+            </div>
+            {%endif%}
+
+            <button class="iconBtn" id="iconBtn">
+              <i class="fa-solid fa-bars" id="bars"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- end of mobile navbar -->
+      </nav>
+    </div>
+
+    <!-- end of navbar -->
+
+
+
+
+
+
+    <h1>Rent a Car</h1>
+<form method="post">
+    {% csrf_token %}
+    <!-- Add form fields for rental details -->
+    <label for="start_date">Start Date:</label>
+    <input type="date" id="start_date" name="start_date">
+
+    <label for="end_date">End Date:</label>
+    <input type="date" id="end_date" name="end_date">
+
+    <!-- Add form fields for payment method -->
+    <label for="payment_method">Payment Method:</label>
+    <select id="payment_method" name="payment_method">
+        <option value="credit_card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <!-- Add more payment options if needed -->
+    </select>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

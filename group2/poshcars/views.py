@@ -1,11 +1,12 @@
 from django.shortcuts import render,redirect, get_object_or_404
+from django.contrib import messages
 
 # to do registration amd login
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 from .forms import RentalAuthForm, CarForm, UpdateCar
-from .models import Car
+from .models import Car, Rental
 
 # Create your views here.
 
@@ -49,6 +50,9 @@ def register(request):
         first_name = request.POST.get("f-name").capitalize()
         last_name = request.POST.get("l-name").capitalize()
         email = request.POST.get('email')
+        nin = request.POST.get('nin')
+        phone_number = request.POST.get('phonenumber')
+        d_license = request.POST.get('drivers_license')
         password = request.POST.get("password")
         c_password = request.POST.get("c-password")
         
@@ -60,7 +64,7 @@ def register(request):
     
         # creating the user
 
-        user = User(email = email, first_name = first_name, last_name = last_name,username=email, password = make_password(password))
+        user = User(email = email, first_name = first_name, last_name = last_name,username=email,  password = make_password(password))
 
         user.save()
         return redirect('login')
@@ -69,7 +73,7 @@ def register(request):
 
 def loginView(request):
     if request.method == "POST":
-        email = request.POST.get("email")
+        email = request.POST.get("username")
         password = request.POST.get("password")
 
         user = authenticate(username = email, password = password)
@@ -86,8 +90,30 @@ def loginView(request):
     
     return render(request, 'poshcars/login.html')
 
+def Rentcar(request,car_id):
+    rent = Car.objects.get(id=car_id)
+    return render(request, "poshcars/rentcar.html", {"posts": rent})
 
 
+
+def Rental_form(request):
+    if request.method == 'POST':
+        print("we are here")
+        duration = request.POST.get('duration')
+        quantity = request.POST.get('quantity')
+        payment_method = request.POST.get('payment_method')
+        
+        rental = Rental(duration=duration, quantity=quantity, payment_method=payment_method)
+        rental.save()
+        
+        # Adding a success message for the users
+        messages.success(request, 'Form submitted successfully!')
+        
+        # Redirect to the user dashboard
+        return redirect('user_dashboard')
+    
+    # If the request method is not POST, render the form
+    return render(request, 'poshcars/rentcar.html')
 
 
 def add_car(request):
@@ -114,6 +140,8 @@ def client_cars(request):
         if form.is_valid():
             form.save()
             return redirect('home')
+        else:
+            print (form.errors)
     else:
         form = RentalAuthForm
         # return("error")

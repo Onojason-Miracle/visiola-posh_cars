@@ -1,10 +1,106 @@
-{%extends 'poshcars/base.html' %}
-{%load static%}
-
-{%block title%}
+{%extends 'poshcars/base.html' %} {%load static%} {%block title%}
 <title>User Dashboard - POSH_CARS</title>
 {%endblock%}
 <h1 class="text-center mt-5">This is User Dashboard</h1>
-{%block content%}
+{%block content%} {%if user.is_superuser%}
 
+<div id="content-below-navbar">
+
+
+  
+<div id="content-below-navbar">
+  <div class="dashboardWrapper">
+    <div class="dashboard">
+        <section class="profile">
+          <div class="profile-details">
+            <h2 class="profile-heading">Admin Profile</h2>
+            <p><b>Email:</b> {{user.email}}</p>
+            <p><b>Phone Number:</b> {{user.phone}}</p>
+            
+            
+            
+    
+            
+          </div>
+        </section>
+    
+       
+          <section class="bookings">
+            <div class="header">
+               
+              </div>
+            <div class="container">
+              <h2>Bookings</h2>
+              <div class="booking-list">
+                <div class="booking">
+                  <img src="car-pic1.jpg" alt="Car Image" />
+                  <div class="booking-details">
+                    <h3>Toyota Camry</h3>
+                    <p><strong>Amount:</strong> #50,0000</p>
+                    <p><strong>Start Date:</strong> 2024-05-10</p>
+                    <p><strong>End Date:</strong> 2024-05-15</p>
+                    <p><strong>Status:</strong> Pending</p>
+                    <button>Cancel Booking</button>
+                  </div>
+                </div>
+                <!-- More booking items here -->
+              </div>
+            </div>
+          </section>
+        
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+{%else%}
+
+<div id="content-below-navbar">
+  <div class="dashboardWrapper">
+    <div class="dashboard">
+        <section class="profile">
+          <div class="profile-details">
+            <h2 class="profile-heading">User Profile</h2>
+            <p><b>Firstname:</b> {{user.first_name}}</p>
+            <p><b>Lastname:</b> {{user.last_name}}</p>
+            <p><b>Email:</b> {{user.email}}</p>
+            <p><b>Phone Number:</b> {{user.phone}}</p>
+            <p><b>Nin:</b> {{user.nin}}</p>
+            <p><b>Drivers License:</b> {{user.license}}</p>
+            
+    
+            
+          </div>
+        </section>
+    
+       
+          <section class="bookings">
+            <div class="header">
+               
+              </div>
+            <div class="container">
+              <h2>Bookings</h2>
+              <div class="booking-list">
+                <div class="booking">
+                  <img src="car-pic1.jpg" alt="Car Image" />
+                  <div class="booking-details">
+                    <h3>Toyota Camry</h3>
+                    <p><strong>Amount:</strong> #50,0000</p>
+                    <p><strong>Start Date:</strong> 2024-05-10</p>
+                    <p><strong>End Date:</strong> 2024-05-15</p>
+                    <p><strong>Status:</strong> Pending</p>
+                    <button>Cancel Booking</button>
+                  </div>
+                </div>
+                <!-- More booking items here -->
+              </div>
+            </div>
+          </section>
+        
+      </div>
+    </div>
+    
+  </div>
+{%endif%} 
 {%endblock%}

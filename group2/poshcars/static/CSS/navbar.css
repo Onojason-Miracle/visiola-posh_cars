@@ -1,263 +1,264 @@
-
 :root {
-    --bg-color: #1c1c1c;
-    --white: white;
-    --font-jakarta: "Plus Jakarta Sans", sans-serif;
-    --font-alfa: "Alfa Slab One", cursive;
-    --red: rgb(150, 13, 13);
-   
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: "poppins";
-  }
-  
-  /* navbar */
-  .navbar {
-    background-color: var(--white);
-     color: var(--bg-color);
-     padding: 1rem;
-     width: 100%;
-   
-   
-    
-   }
-   
-   .navbar-container {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     width: 90%;
-     margin: auto;
-   }
-   
-   .navbar-brand {
-     font-size: 1.5rem;
-     font-family: var(--font-alfa);
-   }
-   
-   .navbar-links {
-     display: flex;
-     align-items: center;
-     list-style-type: none;
-     margin: 0;
-     padding: 0;
-   }
-   
-   .nav-btn {
-    border: none;
-    background-color: transparent;
-   }
- 
-  
- 
-   .nav-btn-link {
-     color: var(--white);
-     text-decoration: none;
-     transition: background-color 0.3s ease;
-     font-weight: 700;
-     text-align: center;
-     background-color: var(--red);
-     padding: 12px 40px;
-     border-radius: 10px;
-     font-size: 16px;
-    
-   }
- 
-   .nav-btn-link:hover {
-    border: 2px solid rgb(150, 13, 13);
-    color: var(--bg-color);
-    background-color: transparent;
-   }
-   
-   .navbar-links li {
-     margin-right: 1rem;
-   }
-   
-   .nav-link {
-     color: var(--bg-color);
-     text-decoration: none;
-     padding: 0.5rem;
-     transition: background-color 0.3s ease;
-     font-weight: 700;
-   }
- 
-   .logo {
-     color: var(--red);
-     text-decoration: none;
-     padding: 0.5rem;
-     transition: background-color 0.3s ease;
-     font-weight: 700;
-   }
-   
-   .first-li .nav-link:nth-child(1) {
-     border-bottom: 2px solid rgb(150, 13, 13);
-   }
-   .nav-btn-link {
-     color: var(--white);
-     text-decoration: none;
-     transition: background-color 0.3s ease;
-     font-weight: 700;
-     text-align: center;
-   }
-   
-   .nav-link:hover {
-     border-bottom: 2px solid rgb(150, 13, 13);
-   }
-   
+  --bg-color: #1c1c1c;
+  --white: white;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-alfa: "Alfa Slab One", cursive;
+  --red: rgb(150, 13, 13);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-   .nav-div{
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    width: 100%;
-   }
+body {
+  font-family: "poppins";
+}
 
-   .iconBtn{
-    background-color: transparent;
-    border: none;
-    display: none;
-   }
+/* navbar */
+.navbar {
+  background-color: var(--white);
+  color: var(--bg-color);
+  padding: 1rem;
+  width: 100%;
+  position: relative;
+}
 
-   .nav_btn_flex{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5%;
-    
-   }
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
 
-   .nav_btn_name{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5%;
-    margin-top: 10%;
-   
-    
-    
-   }
 
-   .nav_btn_flex p{
-    color: var(--bg-color);
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    font-weight: 700;
-   
-   }
+.ul-btn-div {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-   /* media query */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
+.nav-btn {
+  border: none;
+  background-color: transparent;
+}
+
+.logo img {
+  width: 100%;
+  height: 50px;
+  object-fit: cover;
+}
+
+.nav-btn-link {
+  color: var(--white);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  text-align: center;
+  background-color: var(--red);
+  padding: 12px 40px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.nav-btn-link:hover {
+  border: 2px solid rgb(150, 13, 13);
+  color: var(--bg-color);
+  background-color: transparent;
+}
+
+.navbar-links li {
+  margin-right: 1rem;
+}
+
+.nav-link {
+  color: var(--bg-color);
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+}
+
+.logo {
+  color: var(--red);
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+}
+
+/* .first-li .nav-link:nth-child(1) {
+  border-bottom: 2px solid rgb(150, 13, 13);
+} */
+
+.nav-btn-link {
+  color: var(--white);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  text-align: center;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid rgb(150, 13, 13);
+}
+
+.nav-div {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  width: 100%;
+}
+
+.nav_btn_flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+}
+
+.nav_btn_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  margin-top: 10%;
+}
+
+.mobile_nav_btn_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  margin-top: 10%;
+}
+
+.nav_btn_flex p {
+  color: var(--bg-color);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+}
+
+.active {
+  border-bottom: 2px solid rgb(150, 13, 13);
+}
+
+.iconBtn {
+  background-color: transparent;
+  border: none;
+  display: none;
+}
+
+.hide,
+.python {
+  display: none;
+}
+
+/* media query */
 
 @media only screen and (max-width: 600px) {
-  
-  /* Add this CSS to handle the active class for navbar links */
-.navbar-links.active {
-  display: flex;
-}
-
-/* Add this CSS to handle the active class for the nav button */
-.nav-btn.active {
-  display: block;
-}
-
-  .iconBtn{
-    background-color: transparent;
-    border: none;
-    display:block;
-   }
-
-   .navbar-links {
-    display: none;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  .python {
+    display: block;
   }
 
-  .nav-btn {
-    border: none;
-    background-color: transparent;
+  .flexx {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  .mobile_navbtn_name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--red);
+  }
+  .iconBtn {
+    font-size: 32px;
+    display: block;
+  }
+
+  .ul-btn-div {
     display: none;
-   }
-  
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  .mobile-ul-btn-div {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 120px;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 0 5% 2% 0;
+    height: 400px;
+  }
+
+  .admin {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  .nav-link {
+    font-size: 24px;
+  }
+
+  .nav_btn_name {
+    font-size: 24px;
+  }
+
+  .mobile_nav_btn_name {
+    display: block;
+  }
+
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .nav_btn_flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .nav-btn-link {
+    font-size: 24px;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 601px) and (max-width: 767px){
-   /* Add this CSS to handle the active class for navbar links */
-.navbar-links.active {
-  display: flex;
-}
-
-/* Add this CSS to handle the active class for the nav button */
-.nav-btn.active {
-  display: block;
-}
-
-  .iconBtn{
-    background-color: transparent;
-    border: none;
-    display:block;
-   }
-
-   .navbar-links {
-    display: none;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-btn {
-    border: none;
-    background-color: transparent;
-    display: none;
-   }
-  
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-   /* Add this CSS to handle the active class for navbar links */
-.navbar-links.active {
-  display: flex;
-}
-
-/* Add this CSS to handle the active class for the nav button */
-.nav-btn.active {
-  display: block;
-}
-
-  .iconBtn{
-    background-color: transparent;
-    border: none;
-    display:block;
-   }
-
-   .navbar-links {
-    display: none;
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-btn {
-    border: none;
-    background-color: transparent;
-    display: none;
-   }
-  
+@media only screen and (min-width: 601px) and (max-width: 767px) {
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1023px){}
+@media only screen and (min-width: 992px) and (max-width: 1023px) {
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1023px) and (max-width: 1200px) {}
-   
-   
+@media only screen and (min-width: 1023px) and (max-width: 1200px) {
+}

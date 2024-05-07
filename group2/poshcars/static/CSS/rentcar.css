@@ -1,0 +1,57 @@
+:root {
+    --bg-color: #1c1c1c;
+    --white: white;
+    --font-jakarta: "Plus Jakarta Sans", sans-serif;
+    --font-alfa: "Alfa Slab One", cursive;
+    --red: rgb(150, 13, 13);
+    --grey: #808080;
+    --greyish: #ccc;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'poppins';
+  }
+
+
+.rentalDiv{
+    width: 50%;
+    margin: auto;
+    margin-top: 4%;
+}
+
+.rentalDiv-heading{
+    text-align: center;
+}
+
+.rentalDiv-heading h2{
+    font-weight: 700;  
+}
+
+.rentalDiv-heading h3{
+   color: var(--red);
+   font-weight: 700;
+}
+
+.rentcar-btn{
+    background-color: var(--red);
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px 0px;
+    border-radius: 10px;
+    width: 30%;
+    margin-top: 5%;
+    color: var(--white);
+}
+
+/* .rentcar-btn:hover{
+    background-color: transparent;
+    border: 2px solid rgb(150, 13, 13);
+    color: var(--red);
+} */

@@ -34,7 +34,9 @@
             </a>
           </div>
   
-        
+          <a href="{% url 'rentcar' allcar.id %}" class="btn btn-primary">Rent a Car</a>
+
+
   
             <!-- <button class="btn btn-warning"><a href="" class="anchor">Rent Car</a></button> -->
           {%if user.is_superuser%}

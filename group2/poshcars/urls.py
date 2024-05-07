@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, client_cars, Logout, carsDetails, Update, Delete
+from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, client_cars, Logout, carsDetails, Update, Delete, Rentcar, Rental_form
 
 
 
@@ -7,28 +7,33 @@ from .views import home, register, loginView, cars,  user_dashboard, add_car,rev
 urlpatterns = [
     path('', home, name='home'),
 
-    #path for registration/creating an account
+    
     path('register', register, name='register'),
+    
+     path('rentcarform', Rental_form, name='rentcarform'),
 
-    #path for logging
+    
     path('login', loginView, name='login'),
 
-    # car listing
+  
     path('cars', cars, name='car_rental'),
 
-    # car listing
+  
     path('reviews', reviews, name='reviews'),
 
-    # user dashboard
+   
     path('user-dashboard', user_dashboard, name='user_dashboard'),
+    
+     
+  path('rentcar/<int:car_id>/', Rentcar, name='rentcar'),
 
-    #add a new car to the database by the super user  for rent
+    
     path('add-car', add_car, name='add_car'),
 
-    #user logout
+  
     path('logout', Logout, name='logout'),
 
-    #add a new car to the database by clients bringing their cars for rent
+  
     path('client-cars', client_cars, name='client_cars'),
     
      path('details/<int:pid>', carsDetails, name='car-details'),

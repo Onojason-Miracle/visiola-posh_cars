@@ -105,6 +105,16 @@
                 >
               </li>
 
+              {%if user.is_authenticated%}
+              
+              <li>
+                <a href="{%url 'user_dashboard'%}" target="_blank" class="nav-link">
+                  Dashboard</a
+                >
+              </li>
+
+              {%endif%}
+
               {%if user.is_superuser%}
               <li>
                 <a href="{%url 'add_car'%}" target="_blank" class="nav-link">

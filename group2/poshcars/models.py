@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+# model for carbrand
 class CarBrand(models.Model):
     name = models.CharField(max_length=20, unique=True)
     
@@ -9,8 +10,24 @@ class CarBrand(models.Model):
         return self.name
     
 
+   
+# model for Userdetails 
+class  Userdetails(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    nin = models.CharField(max_length=20,)
+    
+    phonenumber = models.IntegerField()
+    
+    drivers_license = models.CharField(max_length=20)
+    
+    image = models.ImageField(upload_to='media', blank=True, null=True)
     
     
+    def __str__(self):
+        return self.name
+    
+    
+# model for RentalAuth
 class RentalAuth(models.Model):
     TRANSMISSION_CHOICES = [
         ('Automatic', 'Automatic'),
@@ -23,27 +40,26 @@ class RentalAuth(models.Model):
         ('Electric', 'Electric'),
         ('Hybrid', 'Hybrid'),
     ]
-    name = models.CharField(max_length=20)
-    phone_number = models.IntegerField()
-    email = models.CharField(max_length=50 , unique=True)
     car_make = models.CharField(max_length=50)
     car_model = models.CharField(max_length=50)
     year_of_manufacture = models.IntegerField()
-    milleage = models.FloatField()
-    nin = models.CharField(max_length=20)
     fuel_type = models.CharField(max_length=20, choices=FUEL_CHOICES)
     number_of_seats = models.IntegerField()
     number_of_doors = models.IntegerField()
     car_reg_number = models.CharField(max_length=50)
     daily_rental_rate = models.FloatField()
-    insurance = models.CharField(max_length=50)
-    car_image = models.ImageField(upload_to='media')
-    transmission_type = models.CharField(max_length=20, choices=TRANSMISSION_CHOICES)
+    insurance_details = models.CharField(max_length=50)
+    photos = models.ImageField(upload_to='media')
+    transmission = models.CharField(max_length=20, choices=TRANSMISSION_CHOICES)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=True )
    
 
-    def __str__(self):
-        return self.name
-
+    # def __str__(self):
+    #     return self.user.email
+    
+    
+    
+# model for Car
 class Car(models.Model):
     TRANSMISSION_CHOICES = [
         ('Automatic', 'Automatic'),
@@ -61,21 +77,16 @@ class Car(models.Model):
     
   
 
-    brand = models.ForeignKey(CarBrand, on_delete=models.CASCADE)
-    rental_agency = models.ForeignKey(RentalAuth, on_delete=models.CASCADE)
-    
+    brand = models.ForeignKey(CarBrand, on_delete=models.CASCADE)  
     model = models.CharField(max_length=100)
     year = models.PositiveIntegerField()
     color = models.CharField(max_length=50)
-    mileage = models.PositiveIntegerField()
     transmission = models.CharField(max_length=20, choices=TRANSMISSION_CHOICES)
     fuel_type = models.CharField(max_length=20, choices=FUEL_CHOICES)
     number_of_doors = models.PositiveIntegerField()
     number_of_seats = models.PositiveIntegerField()
     rental_price_per_day = models.DecimalField(max_digits=10, decimal_places=2)
     location = models.CharField(max_length=200)
-    delivery_options =  models.BooleanField()
-    driver = models.BooleanField()
     availability = models.BooleanField() 
     image = models.ImageField(upload_to='media')
     description = models.TextField()
@@ -86,7 +97,7 @@ class Car(models.Model):
     
     
     
-    
+ # model for Rental   
 class Rental(models.Model):
    
     
@@ -111,14 +122,7 @@ class Rental(models.Model):
 
 
 
-# class CustomUser(AbstractUser):
-#     nin = models.CharField(max_length=20,)
-#     phonenumber = models.IntegerField()
-#     drivers_license = models.CharField(max_length=20)
-#     email = models.CharField(max_length=50, unique=True)
 
-#     REQUIRED_FIELDS = [ 'nin', 'phonenumber', 'drivers_license']
-#     USERNAME_FIELD = 'email'
 
 
 

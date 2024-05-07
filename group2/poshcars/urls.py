@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, client_cars, Logout, carsDetails, Update, Delete, Rentcar, Rental_form
+from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, client_cars, Logout, carsDetails, Update, Delete, Rentcar, Rental_form, UserDetails
 
 
 
@@ -9,6 +9,8 @@ urlpatterns = [
 
     
     path('register', register, name='register'),
+    
+    path('userdetails', UserDetails, name='userdetails'),
     
      path('rentcarform', Rental_form, name='rentcarform'),
 

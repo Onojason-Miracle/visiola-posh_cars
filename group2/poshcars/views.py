@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 from .forms import CarForm, UpdateCar
-from .models import Car, Rental
+from .models import Car, Rental, RentalAuth, Userdetails
 
 # Create your views here.
 
@@ -17,7 +17,6 @@ def home(request):
 def cars(request):
     allcars = Car.objects.all()
     return render (request, 'poshcars/cars.html', {'allcars':allcars})
-
 
 def carsDetails(request, pid):
     details = Car.objects.get(id=pid)
@@ -34,7 +33,6 @@ def Update(request, pid):
         form = UpdateCar(instance=post)
         
     return render(request, 'poshcars/update.html',{'post':post, 'form':form})
-
 
 def Delete(request, pid):
     caritem = get_object_or_404(Car, id=pid)
@@ -72,6 +70,25 @@ def register(request):
         
     return render(request, 'poshcars/register.html')
 
+def UserDetails(request):
+    if request.method == 'POST':
+        user = request.user
+        
+        nin = request.POST.get('nin')
+        
+        phonenumber = request.POST.get('phonenumber')
+        
+        drivers_license = request.POST.get('drivers_license')
+        
+        image = request.FILES.get('image')
+        
+        details = Userdetails(user=user, nin=nin, phonenumber=phonenumber,drivers_license=drivers_license, image=image )
+        
+        details.save()
+        return redirect('user_dashboard')
+    
+    return render(request, 'poshcars/userdetails.html')
+
 def loginView(request):
     if request.method == "POST":
         email = request.POST.get("username")
@@ -94,8 +111,6 @@ def loginView(request):
 def Rentcar(request,car_id):
     rent = Car.objects.get(id=car_id)
     return render(request, "poshcars/rentcar.html", {"posts": rent,'id':car_id})
-
-
 
 def Rental_form(request):
     if request.method == 'POST':
@@ -148,15 +163,22 @@ def Logout(request):
 
 def client_cars(request):
     if request.method=='POST':
-        form = RentalAuthForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            print (form.errors)
-    else:
-        form = RentalAuthForm
-        # return("error")
+        car_make = request.POST.get('car_make')
+        car_model = request.POST.get('car_model')
+        year_of_manufacture = request.POST.get('year_of_manufacture')
+        fuel_type = request.POST.get('fuel_type')
+        number_of_seats = request.POST.get('number_of_seats')
+        number_of_doors = request.POST.get('number_of_doors')
+        daily_rental_rate = request.POST.get('daily_rental_rate')
+        insurance_details = request.POST.get('insurance_details')
+        photos = request.FILES.get('photos')
+        car_reg_number = request.POST.get('car_reg_number')
+        transmission = request.POST.get('transmission')
+        user = request.user
 
-    return render(request, 'poshcars/clientcars.html',{'form_key': form})
+        items = RentalAuth(car_make=car_make, car_model=car_model, year_of_manufacture=year_of_manufacture,fuel_type=fuel_type, number_of_seats=number_of_seats, number_of_doors=number_of_doors,
+        car_reg_number =car_reg_number,daily_rental_rate=daily_rental_rate, insurance_details=insurance_details, photos=photos, transmission=transmission, user=user)
+        items.save()
+        return render(request, 'poshcars/submitted.html', {'items': items})
+    return render(request, 'poshcars/clientcars.html')
 

@@ -56,7 +56,12 @@
   </div>
 </div>
 
+
+<!-- user dashboard -->
+
 {%else%}
+
+{%if user.userdetails%}
 
 <div id="content-below-navbar">
   <div class="dashboardWrapper">
@@ -67,42 +72,53 @@
             <p><b>Firstname:</b> {{user.first_name}}</p>
             <p><b>Lastname:</b> {{user.last_name}}</p>
             <p><b>Email:</b> {{user.email}}</p>
-            <p><b>Phone Number:</b> {{user.phone}}</p>
-            <p><b>Nin:</b> {{user.nin}}</p>
-            <p><b>Drivers License:</b> {{user.license}}</p>
-            
-    
-            
+            <p><b>Phone Number:</b> {{user.userdetails.phonenumber}}</p>
+            <p><b>Nin:</b> {{user.userdetails.nin}}</p>
+            <p><b>Drivers License:</b> {{user.userdetails.drivers_license}}</p>
+
+            <div>
+              <button class="btn btn-light">Edit Profile</button>
+              <button class="btn btn-warning">Delete Profile</button>
+            </div>
           </div>
         </section>
     
        
-          <section class="bookings">
-            <div class="header">
-               
-              </div>
-            <div class="container">
-              <h2>Bookings</h2>
-              <div class="booking-list">
-                <div class="booking">
-                  <img src="car-pic1.jpg" alt="Car Image" />
-                  <div class="booking-details">
-                    <h3>Toyota Camry</h3>
-                    <p><strong>Amount:</strong> #50,0000</p>
-                    <p><strong>Start Date:</strong> 2024-05-10</p>
-                    <p><strong>End Date:</strong> 2024-05-15</p>
-                    <p><strong>Status:</strong> Pending</p>
-                    <button>Cancel Booking</button>
-                  </div>
-                </div>
-                <!-- More booking items here -->
-              </div>
+         
+        <section class="bookings">
+          <div class="header">
+             
             </div>
-          </section>
+          <div class="container">
+            <h2>Bookings</h2>
+            <div class="booking-list">
+              {% for rental in userrental%}
+              <div class="booking">
+                <img src="{{rental.car.image.url}}" alt="Car Image" />
+                <div class="booking-details">
+                  <h3>{{rental.car.brand.name}}</h3>
+                  <p><strong>Amount:</strong>{{rental.car.rental_price_per_day}}</p>
+                  <p><strong>Start Date:</strong> {{rental.startdate}}</p>
+                  <p><strong>Expected Car return Date:</strong>{{rental.enddate}}</p>
+                  <p><strong>Status:</strong> Pending</p>
+                  <button>Cancel Booking</button>
+                </div>
+              </div>
+              {%endfor%}
+              <!-- More booking items here -->
+            </div>
+          </div>
+        </section>
         
       </div>
     </div>
     
   </div>
+
+{%else%}
+<h1>
+  <a href="{%url 'userdetails'%}">Complete Registration</a>
+</h1>
+{%endif%} 
 {%endif%} 
 {%endblock%}

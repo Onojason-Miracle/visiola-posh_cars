@@ -1,0 +1,110 @@
+{%extends 'poshcars/base.html' %}
+{%load static%}
+
+{%block title%}
+<title>User Details - POSH_CARS</title>
+{%endblock%}
+
+{%block content%}
+
+        <section class="reg-main">
+            <div class="reg-img-div">
+
+                <!-- <img  src="https://res.cloudinary.com/blackgirlmagic/image/upload/v1713477636/poshCars/f663b620-9818-4ba6-a6ae-4e04238b3616-removebg-preview_dzad2s.png" class="reg-img" alt="car image"/> -->
+
+              
+               
+            </div>
+
+            <div class="form-div">
+                <form action="" method="POST" class="form">
+                    {%csrf_token%}
+                    <div class="form-info">
+                        <p class="form-info-p1">Complete your registration</p>
+                        <p class="form-info-p2">Enter your details to proceed further</p>
+                    </div>
+
+                   
+               
+
+                  
+
+                    
+                    
+                     
+                        
+                           
+                         
+    
+    
+                         
+                           
+                           <div>
+                            <label  for="nin" >Nin</label>
+                            <div class="icon-div">
+                                <input type="number" placeholder="please put a valid nin" name="nin" class="form-input" required/>
+    
+                                <i class="fa-solid fa-envelope reg-icon"></i>
+                            </div>
+                           </div>
+
+
+
+                           <div>
+                            <label  for="phone">Phone Number</label>
+                            <div class="icon-div">
+                                <input type="tel" placeholder="phone number" name="phonenumber" class="form-input" required/>
+    
+                                <i class="fa-solid fa-envelope reg-icon"></i>
+                            </div>
+                        </div>
+
+                           
+                       
+                     
+
+                    <label for="image">Image</label>
+                    <input type="file" id="image"  name="image"/>
+                      
+                       
+                           
+                           
+                       
+    
+                        
+                          
+                           <div>
+                            <label  for="license">Drivers License</label>
+                            <div class="icon-div">
+                                <input type="text" placeholder="input your drivers license" name="drivers_license" class="form-input" required/>
+    
+                                <i class="fa-solid fa-envelope reg-icon"></i>
+                            </div>
+                           </div>
+                           
+                       
+                     
+
+
+                    
+
+
+                    <p>
+                       
+                            <div class="agree">
+                                <input type="checkbox" id="agree" name="agree" class="reg-checkbox" required>
+                                <label for="agree">I agree to the <a href="register.html" target="_blank" class="terms">terms and conditions</a></label>
+                            </div>
+                      
+                        <button type="submit" class="reg-button">Complete Registration</button>  
+                    </p>
+
+                    <p class="have-account">
+                        <label class="agree">Already have an account?<a href="{%url 'login'%}" target="_blank" class="terms">Login</a></label>
+                    </p>
+                </form>
+            </div>
+        </section>
+
+      {%endblock%}
+

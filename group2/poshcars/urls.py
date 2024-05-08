@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, client_cars, Logout, carsDetails, Update, Delete, Rentcar, Rental_form, UserDetails
+from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, client_cars, Logout, carsDetails, Update, Delete, Rentcar, Rental_form, UserDetail, UpdateUserDetails
 
 
 
@@ -10,9 +10,9 @@ urlpatterns = [
     
     path('register', register, name='register'),
     
-    path('userdetails', UserDetails, name='userdetails'),
+    path('userdetails', UserDetail, name='userdetails'),
     
-     path('rentcarform', Rental_form, name='rentcarform'),
+    path('rentcarform', Rental_form, name='rentcarform'),
 
     
     path('login', loginView, name='login'),
@@ -23,10 +23,8 @@ urlpatterns = [
   
     path('reviews', reviews, name='reviews'),
 
-   
     path('user-dashboard', user_dashboard, name='user_dashboard'),
     
-     
   path('rentcar/<int:car_id>/', Rentcar, name='rentcar'),
 
     
@@ -38,10 +36,12 @@ urlpatterns = [
   
     path('client-cars', client_cars, name='client_cars'),
     
-     path('details/<int:pid>', carsDetails, name='car-details'),
-     
-      path('delete/<int:pid>', Delete, name='delete'),
+    path('details/<int:pid>', carsDetails, name='car-details'),
+    
+    path('delete/<int:pid>', Delete, name='delete'),
       
- path('update/<int:pid>', Update, name='update'),
+    path('update/<int:pid>', Update, name='update'),
+
+    path('update-userdetails/<int:pid>', UpdateUserDetails, name='updateUserDetails'),
 ]
 

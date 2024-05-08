@@ -15,7 +15,7 @@ def home(request):
     return render(request, 'poshcars/home.html')
 
 def cars(request):
-    allcars = Car.objects.all()
+    allcars = Car.objects.filter(verified=True)
     return render (request, 'poshcars/cars.html', {'allcars':allcars})
 
 def carsDetails(request, pid):
@@ -37,8 +37,8 @@ def Update(request, pid):
 def Delete(request, pid):
     caritem = get_object_or_404(Car, id=pid)
     if request.method == "POST":
-         caritem.delete()
-         return redirect('car_rental')
+        caritem.delete()
+        return redirect('car_rental')
     return render(request,'poshcars/delete.html', {'caritem':caritem})
 
 def reviews(request):
@@ -70,7 +70,7 @@ def register(request):
         
     return render(request, 'poshcars/register.html')
 
-def UserDetails(request):
+def UserDetail(request):
     if request.method == 'POST':
         user = request.user
         
@@ -154,8 +154,9 @@ def add_car(request):
     return render(request, 'poshcars/addcars.html', {"form": my_form})  
 
 def user_dashboard(request):
+    unverified_cars = Car.objects.filter(verified=False)
     userrental = Rental.objects.filter(user = request.user)
-    return render(request, 'poshcars/dashboard.html', {'userrental':userrental})
+    return render(request, 'poshcars/dashboard.html', {'userrental':userrental, 'unverified_cars':unverified_cars})
 
 def Logout(request):
     logout(request)
@@ -182,3 +183,20 @@ def client_cars(request):
         return render(request, 'poshcars/submitted.html', {'items': items})
     return render(request, 'poshcars/clientcars.html')
 
+def UpdateUserDetails(request, pid):
+    userdetail = get_object_or_404(Userdetails,id=pid)
+    if request.method == "POST":
+        user = request.user
+        nin = request.POST.get('nin')
+        phonenumber = request.POST.get('phonenumber')
+        drivers_license = request.POST.get('drivers_license')
+        image = request.FILES.get('image')
+
+        userdetail.user = user
+        userdetail.nin = nin
+        userdetail.phonenumber = phonenumber
+        userdetail.drivers_license = drivers_license
+        userdetail.image = image
+        userdetail.save()
+        return redirect('user_dashboard')
+    return render(request, 'poshcars/update-userdetails.html', {'userdetails': userdetail})

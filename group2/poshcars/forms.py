@@ -1,5 +1,5 @@
 from django import forms
-from .models import Car, CarBrand   
+from .models import Car, CarBrand
         
         
         
@@ -24,4 +24,5 @@ class UpdateCar(forms.ModelForm):
     class Meta:
         model = Car
         fields = "__all__"
+        
         

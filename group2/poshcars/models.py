@@ -8,9 +8,7 @@ class CarBrand(models.Model):
     
     def __str__(self):
         return self.name
-    
 
-   
 # model for Userdetails 
 class  Userdetails(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -23,8 +21,7 @@ class  Userdetails(models.Model):
     image = models.ImageField(upload_to='media', blank=True, null=True)
     
     
-    def __str__(self):
-        return self.name
+   
     
     
 # model for RentalAuth
@@ -90,6 +87,7 @@ class Car(models.Model):
     availability = models.BooleanField() 
     image = models.ImageField(upload_to='media')
     description = models.TextField()
+    verified = models.BooleanField(default=False)
     
     
     def __str__(self):

@@ -1,0 +1,16 @@
+#footer-container {
+    background-color: linear-gradient(rgb(150, 13, 13));
+}
+#footer {
+    align-self: center;
+    justify-items: center;
+    height: 100%;
+    width: 25%;
+    padding: 20px 0px;
+    margin: auto;
+
+}
+
+#copyright {
+    padding: 30px 0px;
+}

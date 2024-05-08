@@ -1,8 +1,10 @@
 {%extends 'poshcars/base.html' %}
+
 {%load static%}
 
 {%block title%}
 <title>Car Listing - POSH_CARS</title>
+
 {%endblock%}
 
 
@@ -10,46 +12,55 @@
 
 
 {%block content%}
-<h1>Hello World</h1>
-<p>This is Cars listing page</p>
 
+
+
+<div class="car-main-wrapper">
+
+  
+<h1 class="car-header">Collection of cars</h1>
+  
 <div class="cars_wrapper ">
-    {%for allcar in allcars%}
-    <div class="cars_wrapper_main">
-       <div class="cars_wrapper_inner">
-        <div class="product">
-            <div class="cars_img_div">
-              <img src="{{allcar.image.url}}" alt="Product Image">
-            </div>
-            
-              <div class="product-name">{{allcar.brand.name}}</div>
-            
-           <div >
-              
-              <div class="discounted-price"><b>Rental price</b><br/>#{{allcar.rental_price_per_day}}</div>
-           </div>
-  
-           <a href="{%url 'car-details' allcar.id%}" class="anchor">
-              <div class="product-name">More Details</div>
-            </a>
-          </div>
-  
-          <a href="{% url 'rentcar' allcar.id %}" class="btn btn-primary">Rent a Car</a>
+  {%for allcar in allcars%}
 
+  <div class="cars_wrapper_main">
+   <div class="product">
+    <div class="car-name">{{allcar.brand}}</div>
+    <div class="car-model">{{allcar.model}}</div>
 
-  
-            <!-- <button class="btn btn-warning"><a href="" class="anchor">Rent Car</a></button> -->
-          {%if user.is_superuser%}
-        <div class="cars_admin_btn">
-          <button class="btn btn-danger"><a href="{%url 'delete' allcar.id%}" class="anchor">delete</a></button>
+    <div class="car-img-div">
+      <img src="{{allcar.image.url}}" alt="car image" class="car-img"/>
+    </div>
+
+    <div class="location-price">
+      <div class="location">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>{{allcar.location}}</div>
+      </div>
+
+      <div class="price">
+        <i class="fa-solid fa-naira-sign"></i>
+      <div class="priced">{{allcar.rental_price_per_day}}</div>
+      <div class="car-span">/day</div>
+      </div>
       
-          <button class="btn btn-dark"><a href="{%url 'update' allcar.id%}" class="anchor">Update</a></button>
-        </div>
-          {%endif%}
-       </div>
-</div>
+    </div>
 
-  
+    <div class="other-details">
+      <a href="{%url 'car-details' allcar.id%}" class="anchor">More details</a>
+    </div>
+
+    <div class="rent-btn">
+      <button> <a href="{% url 'rentcar' allcar.id %}" class="renta">Rent Car</a></button>
+    </div>
+   </div>
+
+  </div>
+ 
+
+
+
 {%endfor%}
-</div> 
+</div>
+</div>
 {%endblock%}

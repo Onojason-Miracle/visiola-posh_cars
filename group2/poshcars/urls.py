@@ -1,12 +1,13 @@
 from django.urls import path
-from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, client_cars, Logout, carsDetails, Update, Delete, Rentcar, Rental_form, UserDetail, UpdateUserDetails
+from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, Logout, carsDetails, Update, Delete, Rentcar, Rental_form, UserDetail, UpdateUserDetails, Submitcar, verify_car
 
 
 
 
 urlpatterns = [
     path('', home, name='home'),
-
+    
+    path('successful', Submitcar, name='successful'),
     
     path('register', register, name='register'),
     
@@ -34,7 +35,6 @@ urlpatterns = [
     path('logout', Logout, name='logout'),
 
   
-    path('client-cars', client_cars, name='client_cars'),
     
     path('details/<int:pid>', carsDetails, name='car-details'),
     
@@ -43,5 +43,6 @@ urlpatterns = [
     path('update/<int:pid>', Update, name='update'),
 
     path('update-userdetails/<int:pid>', UpdateUserDetails, name='updateUserDetails'),
+    path('verify-car/<int:id>',verify_car, name="verify-car")
 ]
 

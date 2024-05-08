@@ -2,12 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-# model for carbrand
-class CarBrand(models.Model):
-    name = models.CharField(max_length=20, unique=True)
-    
-    def __str__(self):
-        return self.name
+
+
 
 # model for Userdetails 
 class  Userdetails(models.Model):
@@ -19,40 +15,6 @@ class  Userdetails(models.Model):
     drivers_license = models.CharField(max_length=20)
     
     image = models.ImageField(upload_to='media', blank=True, null=True)
-    
-    
-   
-    
-    
-# model for RentalAuth
-class RentalAuth(models.Model):
-    TRANSMISSION_CHOICES = [
-        ('Automatic', 'Automatic'),
-        ('Manual', 'Manual'),
-    ]
-
-    FUEL_CHOICES = [
-        ('Petrol', 'Petrol'),
-        ('Diesel', 'Diesel'),
-        ('Electric', 'Electric'),
-        ('Hybrid', 'Hybrid'),
-    ]
-    car_make = models.CharField(max_length=50)
-    car_model = models.CharField(max_length=50)
-    year_of_manufacture = models.IntegerField()
-    fuel_type = models.CharField(max_length=20, choices=FUEL_CHOICES)
-    number_of_seats = models.IntegerField()
-    number_of_doors = models.IntegerField()
-    car_reg_number = models.CharField(max_length=50)
-    daily_rental_rate = models.FloatField()
-    insurance_details = models.CharField(max_length=50)
-    photos = models.ImageField(upload_to='media')
-    transmission = models.CharField(max_length=20, choices=TRANSMISSION_CHOICES)
-    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=True )
-   
-
-    # def __str__(self):
-    #     return self.user.email
     
     
     
@@ -74,7 +36,8 @@ class Car(models.Model):
     
   
 
-    brand = models.ForeignKey(CarBrand, on_delete=models.CASCADE)  
+    brand = models.CharField(max_length=50) 
+    user = models.ForeignKey(User, on_delete=models.CASCADE) 
     model = models.CharField(max_length=100)
     year = models.PositiveIntegerField()
     color = models.CharField(max_length=50)
@@ -82,16 +45,19 @@ class Car(models.Model):
     fuel_type = models.CharField(max_length=20, choices=FUEL_CHOICES)
     number_of_doors = models.PositiveIntegerField()
     number_of_seats = models.PositiveIntegerField()
-    rental_price_per_day = models.DecimalField(max_digits=10, decimal_places=2)
+    rental_price_per_day = models.PositiveIntegerField()
     location = models.CharField(max_length=200)
-    availability = models.BooleanField() 
+    availability = models.BooleanField(null=True) 
     image = models.ImageField(upload_to='media')
     description = models.TextField()
-    verified = models.BooleanField(default=False)
+    insurance = models.BooleanField()
+    verified = models.BooleanField(default=False, null=True)
+    plate_number= models.CharField(max_length=100)
+    
     
     
     def __str__(self):
-        return f"{self.brand.name} {self.model}"
+        return f"{self.brand} {self.model}"
     
     
     
@@ -113,10 +79,10 @@ class Rental(models.Model):
     car = models.ForeignKey(Car,on_delete=models.CASCADE,blank=True, null=True )
     startdate = models.DateField(default=timezone.now,)
     enddate = models.DateField(blank=True, null=True)
+    status = models.BooleanField(default=False, null=True)
     
     def __str__(self):
         return f"{self.quantity} cars rented for with {self.payment_method}"
-
 
 
 

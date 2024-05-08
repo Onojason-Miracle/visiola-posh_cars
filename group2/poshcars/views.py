@@ -6,8 +6,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
-from .forms import CarForm, UpdateCar
-from .models import Car, Rental, RentalAuth, Userdetails
+from .models import Car, Rental, Userdetails
 
 # Create your views here.
 
@@ -49,9 +48,6 @@ def register(request):
         first_name = request.POST.get("f-name").capitalize()
         last_name = request.POST.get("l-name").capitalize()
         email = request.POST.get('email')
-        nin = request.POST.get('nin')
-        phone_number = request.POST.get('phonenumber')
-        d_license = request.POST.get('drivers_license')
         password = request.POST.get("password")
         c_password = request.POST.get("c-password")
         
@@ -108,9 +104,31 @@ def loginView(request):
     
     return render(request, 'poshcars/login.html')
 
-def Rentcar(request,car_id):
-    rent = Car.objects.get(id=car_id)
-    return render(request, "poshcars/rentcar.html", {"posts": rent,'id':car_id})
+# def Rentcar(request,car_id):
+#     rent = Car.objects.get(id=car_id)
+#     return render(request, "poshcars/rentcar.html", {"posts": rent,'id':car_id})
+
+
+
+
+
+
+def Rentcar(request, car_id):
+    if request.method == 'POST':
+        rent = Car.objects.get(id=car_id)
+        duration = int(request.POST.get('duration'))
+        quantity = int(request.POST.get('quantity'))
+
+        # Calculate total price
+        total_price = rent.rental_price_per_day * duration * quantity
+
+        # Pass total price to the template
+        return render(request, "poshcars/rentcar.html", {"posts": rent, 'id': car_id, 'total_price': total_price})
+    else:
+        rent = Car.objects.get(id=car_id)
+        return render(request, "poshcars/rentcar.html", {"posts": rent, 'id': car_id})
+
+
 
 def Rental_form(request):
     if request.method == 'POST':
@@ -141,22 +159,44 @@ def Rental_form(request):
     # If the request method is not POST, render the form
     return render(request, 'poshcars/rentcar.html')
 
+def Submitcar(request):
+    return render(request, 'poshcars/submitted.html')
 
 def add_car(request):
-    if request.method == "POST":
-        my_form = CarForm(request.POST, request.FILES) 
-        if my_form.is_valid():
-            my_form.save()
-            return redirect('car_rental')
-    else:
-        my_form = CarForm()  
+    if request.method=='POST':
+        carBrand = request.POST.get('brand').capitalize()
+        car_model = request.POST.get('model').capitalize()
+        year = request.POST.get('year')
+        color = request.POST.get('color')
+        transmission = request.POST.get('transmission')
+        fuel_type = request.POST.get('fuel_type')
+        number_of_seats = request.POST.get('number_of_seats')
+        number_of_doors = request.POST.get('number_of_doors')
+        rental_price_per_day = request.POST.get('rental_price_per_day')
+        insurance = request.POST.get('insurance')
+        image = request.FILES.get('image')
+        location = request.POST.get('location').capitalize()
+        plate_number = request.POST.get('plate_number')
+        availability = request.POST.get('availability')
+        description = request.POST.get('description')
+        verified = request.POST.get('verified')
+        user = request.user
 
-    return render(request, 'poshcars/addcars.html', {"form": my_form})  
+        items = Car( brand = carBrand, model = car_model, year = year, color = color, transmission = transmission, fuel_type = fuel_type, number_of_seats = number_of_seats, number_of_doors = number_of_doors, rental_price_per_day=rental_price_per_day, insurance=insurance, image = image, location = location, plate_number= plate_number, availability = availability, description = description, verified = verified, user = user)
+        
+        items.save() 
+        return redirect('successful')
+    return render(request, 'poshcars/addcars.html') 
+
+    
 
 def user_dashboard(request):
     unverified_cars = Car.objects.filter(verified=False)
+    unverified_rent = Rental.objects.filter(verified=False)
+    unavailable_cars = Car.objects.filter(availability = False)
     userrental = Rental.objects.filter(user = request.user)
-    return render(request, 'poshcars/dashboard.html', {'userrental':userrental, 'unverified_cars':unverified_cars})
+    return render(request, 'poshcars/dashboard.html', {'userrental':userrental, 'unverified_cars':unverified_cars,'unavailable_cars':unavailable_cars, 'unverified_rent':unverified_rent
+    })
 
 def Logout(request):
     logout(request)
@@ -200,3 +240,16 @@ def UpdateUserDetails(request, pid):
         userdetail.save()
         return redirect('user_dashboard')
     return render(request, 'poshcars/update-userdetails.html', {'userdetails': userdetail})
+
+
+def verify_car(request,id):
+    if request.user.is_superuser:
+        car = Car.objects.get(id=id)
+        car.verified = True
+        car.availability = True
+        car.save()
+        
+        return redirect('car_rental')
+    
+    # if not admin
+    return redirect('car_rental')

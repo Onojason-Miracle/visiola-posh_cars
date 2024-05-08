@@ -23,17 +23,82 @@
 
               </div>
             <div class="container">
-              <h2>Bookings</h2>
-              {% for un_car in unverified_cars %}
-                    {{un_car.brand.name}}
-              {% endfor %}
+              <h2>Unverified cars</h2>
+
+
+
+
+              <div class="cars_wrapper ">
+                {% for un_car in unverified_cars %}
+              
+                <div class="cars_wrapper_main">
+                 <div class="product">
+                  <div class="car-name">{{un_car.brand}}</div>
+                  <div class="car-model">{{un_car.model}}</div>
+              
+                  <div class="car-img-div">
+                    <img src="{{un_car.image.url}}" alt="car image" class="car-img"/>
+                  </div>
+              
+                  <div class="location-price">
+                    <div class="location">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <div>{{un_car.location}}</div>
+                    </div>
+              
+                    <div class="price">
+                      <i class="fa-solid fa-naira-sign"></i>
+                    <div class="priced">{{un_car.rental_price_per_day}}</div>
+                    <div class="car-span">/day</div>
+                    </div>
+                    
+                  </div>
+              
+                  <div class="other-details">
+                    <a href="{%url 'car-details' un_car.id%}" class="anchor">More details</a>
+                  </div>
+              
+                  <div class="rent-btn">
+                    <button> <a href="{% url 'verify-car' un_car.id %}">Verify Car</a>
+                      </button>
+                  </div>
+                 </div>
+              
+                </div>
+               
+              
+              
+              
+              {%endfor%}
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+                    
+                      {{un_car.brand}}  {{un_car.id}}</a>
+              
               <div class="booking-list">
                 {% for rental in userrental%}
                 <div class="booking">
-                  <img src="{{rental.car.image.url}}" alt="Car Image" />
+                  <div class="book-img-div">
+                    <img src="{{rental.car.image.url}}" alt="Car Image" class="book-img" />
+                  </div>
                   <div class="booking-details">
                     <h3>{{rental.car.brand.name}}</h3>
-                    <p><strong>Amount:</strong>{{rental.car.rental_price_per_day}}</p>
+                    <p id="amount"><strong>Amount:</strong>{{rental.car.total_price}} </p>
                     <p><strong>Start Date:</strong> {{rental.startdate}}</p>
                     <p><strong>Expected Car return Date:</strong>{{rental.enddate}}</p>
                     <p><strong>Status:</strong> Pending</p>
@@ -87,10 +152,12 @@
             <div class="booking-list">
               {% for rental in userrental%}
               <div class="booking">
-                <img src="{{rental.car.image.url}}" alt="Car Image" />
+              <div class="book-img-div">
+                <img src="{{rental.car.image.url}}" alt="Car Image"  class="book-img"/>
+              </div>
                 <div class="booking-details">
                   <h3>{{rental.car.brand.name}}</h3>
-                  <p><strong>Amount:</strong>{{rental.car.rental_price_per_day}}</p>
+                  <p><strong>Amount:</strong>{{rental.car.total_price}}</p>
                   <p><strong>Start Date:</strong> {{rental.startdate}}</p>
                   <p><strong>Expected Car return Date:</strong>{{rental.enddate}}</p>
                   <p><strong>Status:</strong> Pending</p>

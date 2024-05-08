@@ -10,19 +10,18 @@
 
 
 {%block content%}
-<h1>Car Details here</h1>
+
 
 <div class="details_wrapper">
     <div class="details_imageDiv">
         <img src="{{posts.image.url}}" alt="Product Image" class="details_image"> 
     </div>
     <div class="details">
-        <h1>Details</h1>
         <div>
             <p><b>Name:</b> {{posts.brand.name}}</p>
             <p><b>Model:</b> {{posts.model}}</p>
             <p><b>Rental Price per day:</b> {{posts.rental_price_per_day}}</p>
-            <p><b>year:</b> {{posts.year}}</p>
+            <p><b>Year of make:</b> {{posts.year}}</p>
             <p><b>Mileage:</b> {{posts.mileage}}</p>
         
 
@@ -30,24 +29,10 @@
             <p><b>Availability of Car:</b> Sorry, this car is not available to be rented. Check our other lists of cars for your needs.</p>
         {% else %}
             <p><b>Availability of Car:</b> This car is available to be rented.</p>
-        
-            {% if not posts.delivery_options %}
-                <p><b>Car Delivery Options:</b> Please come pick the car from our office.</p>
-            {% else %}
-                <p><b>Car Delivery Options:</b> Company driver could deliver the car to you at extra charge.</p>
-            {% endif %}
-        
-            {% if not posts.driver %}
-                <p><b>Availability of Driver:</b> Company driver is currently not available for your services.</p>
-            {% else %}
-                <p><b>Availability of Driver:</b> Company driver is available for your services at extra charge.</p>
-            {% endif %}
-        {% endif %}
-        
 
-
+            {%endif%}
         
-            <p><b>Transmission:</b> {{posts.transmission}}
+          <p><b>Transmission:</b> {{posts.transmission}}
             </p>
             <p><b>Fuel Type:</b> {{posts.fuel_type}}</p>
             <p><b>Number of doors:</b> {{posts.number_of_doors}}</p>

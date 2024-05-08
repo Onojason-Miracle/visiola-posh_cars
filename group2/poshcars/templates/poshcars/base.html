@@ -190,11 +190,7 @@
           <div class="nav_btn_flex">
             {%if user.is_authenticated%}
 
-            <!-- <div class="nav_btn_name">
-      <p>{{user.first_name}}</p>
-      <p>{{ user.last_name|slice:":1" }}</p>
-    </div> -->
-
+         
             <button class="nav-btn">
               <a href="{%url 'logout'%}" target="_blank" class="nav-btn-link"
                 >Logout</a

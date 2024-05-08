@@ -4,6 +4,7 @@
     --font-jakarta: "Plus Jakarta Sans", sans-serif;
     --font-alfa: "Alfa Slab One", cursive;
     --red: rgb(150, 13, 13);
+    --greyish: #ccc;
    
   }
   * {
@@ -13,7 +14,22 @@
   }
   
   body {
-    font-family: var(--font-jakarta);
+    font-family: "poppins";
+  
+  }
+
+  .car-main-wrapper{
+    background-color:var(--greyish) ;
+    width: 100%;
+    padding-bottom: 5%;
+   
+  }
+
+  .car-header{
+    padding-top: 2%;
+    font-weight: 700;
+    font-size: 48px;
+    text-align: center;
   }
 
   .cars_wrapper{
@@ -23,38 +39,125 @@
     margin: auto;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 7%;
     margin-bottom: 2%;
    
   }
 
   .cars_wrapper_main{
-  
-   border: 1px solid black;
-  
-    
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    border: 1px solid #ccc;
+    padding-bottom: 1%;
+    width: 23%;
+    border-radius: 5px;
+    margin-top: 3%;
   }
 
-  .cars_wrapper_inner{
+  .product{
     width: 90%;
-   margin: auto;
+    margin: auto;
+    margin-top: 2%;
   }
 
-  .cars_img_div{
-    width: 350px;
-    height: 320px;
-  }
-  .cars_img_div img{
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-    
-    
+  .car-name{
+    color: var(--bg-color);
+    font-size: 24px;
+    font-weight: 700;
   }
 
-  .cars_admin_btn{
+  .car-model{
+    color: grey;
+    font-weight: 500;
+    font-size: 20px;
+
+  }
+
+  .car-img-div{
+    height: 170px;
+    width: 100%;
+    margin-top: 2%;
+  }
+
+  .car-img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .location-price{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
+
+  .location{
+    display: flex;
+    gap: 10px;
+    color: grey;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .location div{
+    font-size: 20px;
+  }
+
+  .price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-jakarta);
+  }
+
+  .price i{
+    font-size: 24px;
+  }
+
+  .priced{
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .car-span{
+    color: grey;
+    font-weight: 700;
+  }
+
+.other-details{
+  margin-top: 3%;
+  text-align: center;
+}
+
+.other-details a{
+  color: var(--bg-color);
+  font-size: 18px;
+}
+
+.other-details a:hover{
+  color: grey;
+  
+}
+
+.rent-btn{
+  text-align: center;
+  margin: 6%;
+}
+
+.rent-btn button{
+  border: none;
+  background-color: var(--red);
+  color: var(--white);
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.renta{
+  color: var(--white);
+  text-decoration:none;
+}
+
+ 
 
   /* car details css */
 
@@ -73,18 +176,121 @@
 
 .details{
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
 }
+
+
 
 .details_image{
   width: 500px;
   height: 600px;
   object-fit: cover;
 }
+
+/* add cars css */
+
+.add-car-wrapper{
+  width: 50%;
+  margin: auto;
+  margin-top: 7%;
+}
+
+
+/* submit css */
+
+.submit{
+  width: 50%;
+  margin: auto;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+/* rentcar.html css */
+
+.booking-list{
+  display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+  
+}
+
+.booking{
+  background-color: var(--white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  border: 1px solid #ccc;
+  padding-bottom: 1%;
+  width: 23%;
+  border-radius: 5px;
+  margin-top: 3%;
+}
+
+.book-img{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.book-img-div{
+  height: 170px;
+  width: 100%;
+  margin-top: 2%;
+}
+
    /* media query */
 
 
    @media only screen and (max-width: 600px) {
-  
+    .cars_wrapper{
+      flex-direction: column;
+    }
+
+    .cars_wrapper_main{
+      width: 100%;
+    }
+
+    .car-header{
+      font-size: 32px;
+    }
+
+    .details_wrapper{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 20%;
+      width: 90%;
+      margin: auto;
+      margin-top: 10%;
+    }
+
+    .details_imageDiv{
+      width: 100%;
+    }
+
+    .details_image{
+      width: 400px;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .details{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 10%;
+     
+    }
     
    }
    

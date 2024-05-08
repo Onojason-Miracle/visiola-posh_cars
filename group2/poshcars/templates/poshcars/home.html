@@ -41,46 +41,28 @@
                   <div class="buttons">
 
                     {%if user.is_authenticated%}
-                    {%if user.is_superuser%}
+                   
                     <button class="home-btn">
 
                       
                       <a target="_blank" href="{%url 'car_rental'%}"
 
-                        >Rent Out Your Car</a
+                        >Rent a Car</a
                       >
                     </button>
 
                     <button class="home-btn">
 
                       
-                      <a target="_blank" href="{%url 'client_cars'%}"
+                      <a target="_blank" href="{%url 'add_car'%}"
 
                         >Rent Out Your Car</a
                       >
                     </button>
                     
-                    {%endif%}
-
-                    <button class="home-btn">
-
-                      
-                      <a target="_blank" href="{%url 'car_rental'%}"
-
-                        >Rent a car</a
-                      >
-                    </button>
+                   
 
                   
-
-                    <button class="home-btn">
-
-                      
-                      <a target="_blank" href="{%url 'client_cars'%}"
-
-                        >Rent Out Your Car</a
-                      >
-                    </button>
 
                   {%else%}
 

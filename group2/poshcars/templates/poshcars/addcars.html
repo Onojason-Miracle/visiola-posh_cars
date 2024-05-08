@@ -7,21 +7,96 @@
 
 {%block content%}
 
-<h1 class="text-center mt-5">admin add car here</h1>
-<div class="">
-    <form method="post" enctype="multipart/form-data" class="formm">
+<div class="add-car-wrapper">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-       
-        {% for field in form %}
-            <div class="myform">
-                <div class="text-danger">{{ field.errors }}</div>
-                <div class="add-form-label">{{ field.label_tag }}</div>
-                <div class="">{{ field }}</div>
-            </div>
-        {% endfor %}
-    
-        <button type="submit" name="submit" class="btn btn-primary">Add Car</button>
-    </form>
-    
+      
+        <!-- Brand -->
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand" required>
+      
+        <!-- Model -->
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" required>
+      
+        <!-- Year -->
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" required>
+      
+        <!-- Color -->
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" required>
+      
+        <!-- Transmission -->
+        <label for="transmission">Transmission:</label>
+        <select id="transmission" name="transmission" required>
+          <option value="Automatic">Automatic</option>
+          <option value="Manual">Manual</option>
+        </select>
+      
+        <!-- Fuel Type -->
+        <label for="fuel_type">Fuel Type:</label>
+        <select id="fuel_type" name="fuel_type" required>
+          <option value="Petrol">Petrol</option>
+          <option value="Diesel">Diesel</option>
+          <option value="Electric">Electric</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
+      
+        <!-- Number of Doors -->
+        <label for="number_of_doors">Number of Doors:</label>
+        <input type="number" id="number_of_doors" name="number_of_doors" required>
+      
+        <!-- Number of Seats -->
+        <label for="number_of_seats">Number of Seats:</label>
+        <input type="number" id="number_of_seats" name="number_of_seats" required>
+      
+        <!-- Rental Price Per Day -->
+        <label for="rental_price_per_day">Rental Price Per Day:</label>
+        <input type="number" id="rental_price_per_day" name="rental_price_per_day"  required>
+      
+        <!-- Location -->
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+      
+        {%if user.is_superuser%}
+        <!-- Availability -->
+        <label for="availability">Availability:</label>
+        <select id="availability" name="availability">
+          <option value=True>Yes</option>
+          <option value=False>No</option>
+        </select>
+      {%endif%}
+        <!-- Image -->
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+      
+        <!-- Description -->
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+      
+        <!-- Insurance -->
+        <label for="insurance">Insurance:</label>
+        <select id="insurance" name="insurance" required>
+          <option value=True>Yes</option>
+          <option value=False>No</option>
+        </select>
+      
+        {%if user.is_superuser%}
+        <!-- Verified -->
+        <label for="verified">Verified:</label>
+        <select id="verified" name="verified" >
+          <option value=True>Yes</option>
+          <option value=False>No</option>
+        </select>
+    {%endif%}
+        <!-- Plate Number -->
+        <label for="plate_number">Plate Number:</label>
+        <input type="text" id="plate_number" name="plate_number" required>
+      
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+      </form>
+      
 </div>
 {%endblock%}

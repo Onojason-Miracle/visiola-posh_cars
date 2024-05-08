@@ -6,8 +6,6 @@
 
 <div id="content-below-navbar">
 
-
-  
 <div id="content-below-navbar">
   <div class="dashboardWrapper">
     <div class="dashboard">
@@ -16,21 +14,19 @@
             <h2 class="profile-heading">Admin Profile</h2>
             <p><b>Email:</b> {{user.email}}</p>
             <p><b>Phone Number:</b> {{user.phone}}</p>
-            
 
-            
-    
-            
           </div>
         </section>
-    
-       
+
           <section class="bookings">
             <div class="header">
-               
+
               </div>
             <div class="container">
               <h2>Bookings</h2>
+              {% for un_car in unverified_cars %}
+                    {{un_car.brand.name}}
+              {% endfor %}
               <div class="booking-list">
                 {% for rental in userrental%}
                 <div class="booking">
@@ -77,17 +73,14 @@
             <p><b>Drivers License:</b> {{user.userdetails.drivers_license}}</p>
 
             <div>
-              <button class="btn btn-light">Edit Profile</button>
-              <button class="btn btn-warning">Delete Profile</button>
+              <button class="btn btn-light"><a href="{% url 'updateUserDetails' user.userdetails.id %}">Edit Profile</a></button>
             </div>
           </div>
         </section>
-    
-       
-         
+        
         <section class="bookings">
           <div class="header">
-             
+            
             </div>
           <div class="container">
             <h2>Bookings</h2>

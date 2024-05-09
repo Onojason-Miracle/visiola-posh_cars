@@ -4,7 +4,7 @@
   --white: white;
   --font-jakarta: "Plus Jakarta Sans", sans-serif;
   --font-alfa: "Alfa Slab One", cursive;
-  --red: rgb(150, 13, 13);
+  --red: rgba(150, 13, 13,0.8);
   
 }
 
@@ -57,7 +57,7 @@ label {
 
 .reg-button {
   border: none;
-  width: 100%;
+  width: 40%;
   background-color: var(--red);
   color: var(--white);
   margin-top: 5%;

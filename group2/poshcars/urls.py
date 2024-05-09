@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, Logout, carsDetails, Update, Delete, Rentcar, Rental_form, UserDetail, UpdateUserDetails, Submitcar, verify_car
+
+from .views import home, register, loginView, cars,  user_dashboard, add_car,reviews, Logout, carsDetails, Update, Delete, Rentcar, Rental_form, UserDetail, UpdateUserDetails, Submitcar, verify_car, approved_rent, is_returned
 
 
 
@@ -40,9 +41,16 @@ urlpatterns = [
     
     path('delete/<int:pid>', Delete, name='delete'),
       
-    path('update/<int:pid>', Update, name='update'),
+    path('update/<int:car_id>', Update, name='update'),
 
     path('update-userdetails/<int:pid>', UpdateUserDetails, name='updateUserDetails'),
-    path('verify-car/<int:id>',verify_car, name="verify-car")
+    
+    path('verify-car/<int:vid>',verify_car, name="verify-car"),
+    
+    path('approved-rent/<int:id>',approved_rent, name="approved-rent"),
+    
+   
+     
+      path('is-returned/<int:id>',is_returned, name="is-returned")
 ]
 

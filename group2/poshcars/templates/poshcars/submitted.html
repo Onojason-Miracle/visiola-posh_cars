@@ -8,6 +8,16 @@
 
 {%block content%}
 
+{%if user.is_superuser%}
+
+<div class="submit">
+ 
+    <h3>Successful!.</h3>
+
+    </div>
+
+    {%else%}
+
 <div class="submit">
  
     <h3>Thank you for registering your car for rent.</h3>
@@ -15,4 +25,6 @@
     <h5>Our admin will review and approve within 24 hours</h5>
  
 </div>
+
+{%endif%}
 {%endblock%}

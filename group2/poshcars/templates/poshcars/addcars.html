@@ -82,14 +82,14 @@
           <option value=False>No</option>
         </select>
       
-        {%if user.is_superuser%}
+       
         <!-- Verified -->
         <label for="verified">Verified:</label>
-        <select id="verified" name="verified" >
+        <select id="verified" name="verified"  hidden>
           <option value=True>Yes</option>
           <option value=False>No</option>
         </select>
-    {%endif%}
+   
         <!-- Plate Number -->
         <label for="plate_number">Plate Number:</label>
         <input type="text" id="plate_number" name="plate_number" required>

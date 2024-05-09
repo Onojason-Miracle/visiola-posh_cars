@@ -1,10 +1,19 @@
-document.querySelector("#quantity").addEventListener("input", function() {
-    let quantity = parseInt(this.value);
-    let pricePerDay = document.querySelector('#price'); 
-    let rentAmount = document.querySelector('#amount')
-    let totalPrice = quantity * pricePerDay;
-    document.querySelector("#price").textContent = "Total Price: #" + totalPrice;
 
-    rentAmount.value=totalPrice
 
-  });
+function toggleVisibility(elementId) {
+  var element = document.getElementById(elementId);
+  if (element.style.display === 'none') {
+      element.style.display = 'block';
+  } else {
+      element.style.display = 'none';
+  }
+}
+
+// Add event listeners to the buttons
+document.getElementById("unapproved-btn").addEventListener("click", function() {
+  toggleVisibility("unapproved-rents");
+});
+
+document.getElementById("unverified-btn").addEventListener("click", function() {
+  toggleVisibility("unverified-cars");
+});

@@ -4,7 +4,7 @@
     --white: white;
     --font-jakarta: "Plus Jakarta Sans", sans-serif;
     --font-alfa: "Alfa Slab One", cursive;
-    --red: rgb(150, 13, 13);
+    --red: rgba(150, 13, 13,0.8);
     
 }
 
@@ -18,7 +18,7 @@
 .dashboard {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+   
 
 }
 
@@ -31,30 +31,31 @@
     background-color: var(--red);
     color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    position: absolute;
-    top: 0;
     min-height: 700px;
     width: 20%;
 }
 
 .profile-details{
-  width: 100%;
+  width: 80%;
+  margin: auto;
   padding-left: 5%;
   padding-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-items: flex-start;
 }
 
 .dashboardWrapper{
     width: 100%;
-    position: relative;
+    
 }
 
 .bookings{
     background-color:var(--white) ;
     width: 70%;
-    margin-top: 5%;
-    position: absolute;
-    top: 40px;
-    right: 0;
+    margin-top: 2%;
+   
 }
 
 .profile-heading{
@@ -66,3 +67,166 @@ button a {
     color: var(--bg-color);
     font-family: var(--font-jakarta);
 }
+
+.user-dash-container{
+    width: 100%;
+    
+}
+
+
+#unapproved-rents, #unverified-cars {
+  display: none;
+ 
+  
+}
+.admin_wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2%;
+   
+  }
+
+  .admin_wrapper_main{
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    border: 4px solid white;
+    padding-bottom: 1%;
+    width: 30%;
+    border-radius: 5px;
+    margin-top: 3%;
+  }
+
+  .admin-product{
+    width: 90%;
+    margin: auto;
+    margin-top: 2%;
+  }
+
+  .booking-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .booking-product{
+    width: 90%;
+    margin: auto;
+  }
+
+  .booking-inner{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    border: 4px solid white;
+  }
+
+  .complete-reg{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+.admin-rent-btn-div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5%;
+  gap: 5px;
+}
+  
+.other-details{
+  margin-top: 6%;
+}
+
+  .rent-user{
+    color: var(--bg-color);
+  }
+
+
+  .success-rent-approve{
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    color: var(--bg-color);
+
+  }
+
+  .unverified-btn{
+    background-color: var(--white);
+    color: var(--bg-color);
+    width: 100%;
+    font-weight: 700;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 8%;
+  }
+
+  .unapproved-btn{
+    background-color: var(--white);
+    color: var(--bg-color);
+    width: 100%;
+    font-weight: 700;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 8%;
+  }
+
+  .admin-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .admin-rent-btn button {
+    background-color: var(--red);
+    color: var(--white);
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+  }
+
+.admin-rent-btn button a{
+  color: var(--white);
+}
+
+
+.is_returned{
+  margin-top: 2%;
+  text-align: center;
+}
+
+  .profile-img-div{
+    width: 100px;
+    height: 100px;
+    border: 5px solid white;
+    border-radius: 100%;
+    margin-bottom: 5%;
+    
+  }
+
+  .profile-img{
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+.cancel{
+  text-align: center;
+  width: 100%;
+}
+  .cancel button{
+    background-color: var(--red);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }

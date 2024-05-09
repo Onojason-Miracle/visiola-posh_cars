@@ -2,7 +2,7 @@
 {%load static%}
 
 {%block title%}
-<title> Update User Details - POSH_CARS</title>
+<title>User Details - POSH_CARS</title>
 {%endblock%}
 
 {%block content%}
@@ -15,45 +15,61 @@
             </div>
 
             <div class="form-div">
+
+                <h2  class="text-center">Update {{userdetail.User.first_name}} {{userdetail.User.last_name}}</h2>
+                
                 <form action="" method="POST" class="form">
                     {%csrf_token%}
+                   
                     
-                    <div>
+                           <div>
                             <label  for="nin" >Nin</label>
                             <div class="icon-div">
-                                <input type="number" placeholder="please put a valid nin" name="nin" class="form-input"/>
+                                <input type="number" placeholder="please put a valid nin" name="nin" class="form-input" required value="{{userdetails.nin}}"/>
     
                                 <i class="fa-solid fa-envelope reg-icon"></i>
                             </div>
-                        </div>
-                        <div>
+                           </div>
+
+
+
+                           <div>
                             <label  for="phone">Phone Number</label>
                             <div class="icon-div">
-                                <input type="tel" placeholder="phone number" name="phonenumber" class="form-input" />
+                                <input type="tel" placeholder="phone number" name="phonenumber" class="form-input" required value="{{userdetails.phonenumber}}"/>
     
                                 <i class="fa-solid fa-envelope reg-icon"></i>
                             </div>
                         </div>
 
                     <label for="image">Image</label>
-                    <input type="file" id="image"  name="image"/>
-                        <div>
+                    <input type="file" id="image"  name="image"  accept="image/*"/>
+
+                        
+                          
+                           <div>
                             <label  for="license">Drivers License</label>
                             <div class="icon-div">
-                                <input type="text" placeholder="input your drivers license" name="drivers_license" class="form-input" />
+                                <input type="text" placeholder="input your drivers license" name="drivers_license" class="form-input" required  value="{{userdetails.drivers_license}}"/>
     
                                 <i class="fa-solid fa-envelope reg-icon"></i>
                             </div>
                         </div>
 
-                    <p>
-                            
-                        <button type="submit" class="reg-button">Update UserDetails</button>  
+                    <p class="text-center">
+                           
+                        <button type="submit" class="reg-button">Update Details</button>  
                     </p>
 
+                  
                 </form>
             </div>
         </section>
 
-    {%endblock%}
+      {%endblock%}
 
+
+
+
+
+   

@@ -21,6 +21,10 @@
 <h1 class="car-header">Collection of cars</h1>
   
 <div class="cars_wrapper ">
+
+  <!-- admin -->
+
+  {%if user.is_superuser%}
   {%for allcar in allcars%}
 
   <div class="cars_wrapper_main">
@@ -50,17 +54,117 @@
       <a href="{%url 'car-details' allcar.id%}" class="anchor">More details</a>
     </div>
 
-    <div class="rent-btn">
-      <button> <a href="{% url 'rentcar' allcar.id %}" class="renta">Rent Car</a></button>
+   
+
+   
+
+    <div class="del-update">
+      <button class="delete-btn"> <a href="{% url 'delete' allcar.id %}" class="car-delete">Delete </a></button>
+
+      <button class="update-btn"> <a href="{% url 'update' allcar.id %}" class="car-update">Update </a></button>
     </div>
+
+   
    </div>
 
   </div>
+
  
 
 
 
 {%endfor%}
+
+{%else%}
+
+<!-- users -->
+
+{%for allcar in allcars%}
+
+<div class="cars_wrapper_main">
+ <div class="product">
+  <div class="car-name">{{allcar.brand}}</div>
+  <div class="car-model">{{allcar.model}}</div>
+
+  <div class="car-img-div">
+    <img src="{{allcar.image.url}}" alt="car image" class="car-img"/>
+  </div>
+
+  <div class="location-price">
+    <div class="location">
+      <i class="fa-solid fa-location-dot"></i>
+      <div>{{allcar.location}}</div>
+    </div>
+
+    <div class="price">
+      <i class="fa-solid fa-naira-sign"></i>
+    <div class="priced">{{allcar.rental_price_per_day}}</div>
+    <div class="car-span">/day</div>
+    </div>
+    
+  </div>
+
+  <div class="other-details">
+    <a href="{%url 'car-details' allcar.id%}" class="anchor">More details</a>
+  </div>
+
+ 
+
+
+
+  {% if user.is_authenticated %}
+    {% if user.userdetails %}
+        {% for returned_cars in returned %}
+          
+
+            {% if allcar.availability == True %}
+                
+            <div class="rent-btn">
+                <button><a href="{% url 'rentcar' allcar.id %}" class="renta">Rent Now</a></button>
+            </div>
+           
+                {% else %}
+                    <div class="no-car-msg">
+                        <div>Not available for rent.</div>
+                    </div>
+                {% endif %}
+              
+           
+        {% endfor %}
+
+       
+       
+    {% else %}
+        <div>
+            <div class="cars-complete-reg"> Complete your registration <a href="{% url 'userdetails' %}">here</a></div>
+        </div>
+    {% endif %}
+{% else %}
+    <div class="rent-btn">
+        <button><a href="{% url 'login' %}" class="renta">Rent Car</a></button>
+    </div>
+{% endif %}
+
+
+
+ 
+
+
+
+
+ </div>
+
+</div>
+
+
+
+
+
+{%endfor%}
+  {%endif%}
+
 </div>
 </div>
+
+
 {%endblock%}

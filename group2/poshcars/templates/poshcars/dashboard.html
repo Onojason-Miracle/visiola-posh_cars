@@ -5,122 +5,188 @@
 {%block content%} {%if user.is_superuser%}
 
 <div id="content-below-navbar">
-
-<div id="content-below-navbar">
   <div class="dashboardWrapper">
     <div class="dashboard">
-        <section class="profile">
-          <div class="profile-details">
-            <h2 class="profile-heading">Admin Profile</h2>
-            <p><b>Email:</b> {{user.email}}</p>
-            <p><b>Phone Number:</b> {{user.phone}}</p>
+      <section class="profile">
+        <div class="profile-details">
+          <h2 class="profile-heading">Admin Profile</h2>
+          <p><b>Email:</b> {{user.email}}</p>
+          <button id="unapproved-btn" class="unapproved-btn">Unapproved Rents</button>
+          <button id="unverified-btn" class="unverified-btn">Unverified cars</button>
+        </div>
+      </section>
+      <section class="bookings">
+        
 
+        <div id="unverified-cars">
+          <div class="header">
+            <h2>Unverified Cars</h2>
           </div>
-        </section>
-
-          <section class="bookings">
-            <div class="header">
-
-              </div>
-            <div class="container">
-              <h2>Unverified cars</h2>
-
-
-
-
-              <div class="cars_wrapper ">
-                {% for un_car in unverified_cars %}
-              
-                <div class="cars_wrapper_main">
-                 <div class="product">
-                  <div class="car-name">{{un_car.brand}}</div>
-                  <div class="car-model">{{un_car.model}}</div>
-              
+  
+          <div class="admin-container">
+            <div class="admin_wrapper">
+              {% for carv in unverified_cars%}
+              <div class="admin_wrapper_main">
+                <div class="admin-product">
+                  <div class="car-name">{{carv.brand}}</div>
+                  <div class="car-model">{{carv.model}}</div>
+  
                   <div class="car-img-div">
-                    <img src="{{un_car.image.url}}" alt="car image" class="car-img"/>
+                    <img
+                      src="{{ carv.image.url }}"
+                      alt="car image"
+                      class="car-img"
+                    />
                   </div>
-              
+  
                   <div class="location-price">
                     <div class="location">
                       <i class="fa-solid fa-location-dot"></i>
-                      <div>{{un_car.location}}</div>
+                      <div>{{ carv.location }}</div>
                     </div>
-              
+  
                     <div class="price">
                       <i class="fa-solid fa-naira-sign"></i>
-                    <div class="priced">{{un_car.rental_price_per_day}}</div>
-                    <div class="car-span">/day</div>
+                      <div class="priced">{{ carv.rental_price_per_day }}</div>
+                      <div class="car-span">/day</div>
                     </div>
-                    
                   </div>
-              
+  
                   <div class="other-details">
-                    <a href="{%url 'car-details' un_car.id%}" class="anchor">More details</a>
+                    <a href="{% url 'car-details' carv.id %}" class="anchor"
+                      >More details</a
+                    >
                   </div>
-              
-                  <div class="rent-btn">
-                    <button> <a href="{% url 'verify-car' un_car.id %}">Verify Car</a>
-                      </button>
+  
+                  <div class="admin-rent-btn">
+                    <button>
+                      <a href="{% url 'verify-car' carv.id %}">Verify Car</a>
+                    </button>
                   </div>
-                 </div>
-              
                 </div>
-               
-              
-              
-              
+              </div>
               {%endfor%}
-              </div>
+            </div>
+          </div>
+        </div>
 
+       <div id="unapproved-rents">
+        <div class="header">
+          <h2>Unapproved Rentals</h2>
+        </div>
 
+        <!-- beginning  -->
 
+        <div class="admin-container">
+          <div class="admin_wrapper">
+        
+            {%if success%}
+            <div class="success-rent-approve">{{success}}</div>
+            {%endif%}
+            
+            {% for approve in unverified_rent %}
+           
+            <div class="admin_wrapper_main">
+             
+              <div class="admin-product">
+<div class="rent-user">
+  
+  <div class="rent-user">usernname: {{approve.user.first_name}} {{approve.user.last_name}}</div>
 
+  <div class="rent-user">user_id: {{approve.user.id}}</div>
+</div>
 
+<hr/>
 
+               <div class="admin-flex">
+                <div class="car-name">{{approve.car.brand}}</div>
 
+                <div class="car-model">{{approve.car.model}}</div>
+               </div>
 
+                <div class="car-img-div">
+                  <img
+                    src="{{ approve.car.image.url }}"
+                    alt="car image"
+                    class="car-img"
+                  />
+                </div>
 
-
-
-
-
-
-
-              
-                    
-                      {{un_car.brand}}  {{un_car.id}}</a>
-              
-              <div class="booking-list">
-                {% for rental in userrental%}
-                <div class="booking">
-                  <div class="book-img-div">
-                    <img src="{{rental.car.image.url}}" alt="Car Image" class="book-img" />
+                <div class="location-price">
+                  <div>
+                    <div><b>Rent Date</b></div>
+                    <div>{{ approve.startdate }}</div>
                   </div>
-                  <div class="booking-details">
-                    <h3>{{rental.car.brand.name}}</h3>
-                    <p id="amount"><strong>Amount:</strong>{{rental.car.total_price}} </p>
-                    <p><strong>Start Date:</strong> {{rental.startdate}}</p>
-                    <p><strong>Expected Car return Date:</strong>{{rental.enddate}}</p>
-                    <p><strong>Status:</strong> Pending</p>
-                    <button>Cancel Booking</button>
+
+                 
+
+                  <div class="price">
+                    <i class="fa-solid fa-naira-sign"></i>
+                    <div class="priced">{{ approve.car.rental_price_per_day }}</div>
+                    <div class="car-span">/day</div>
                   </div>
                 </div>
-                {%endfor%}
-                <!-- More booking items here -->
-              </div>
-            </div>
-          </section>
-        
-      </div>
-    </div>
-    
+
+                <hr/>
+
+                <div class="other-details">
+                  <div><b>expected_return_date</b></div>
+                  <div>{{ approve.enddate }}</div>
+                  
+                </div>
+
+               
+
+                <div class="is_returned">
+                  {% if not approve.is_returned%}
+                  <div><b>car not returned</b></div>
+
+                  {%else%}
+                  
+                  <div><b>rented car is returned</b></div>
+
+                  {%endif%}
+                </div>
+
+
+                <hr/>
+
+                
+<div class="admin-rent-btn-div">
+  <div class="admin-rent-btn">
+    <button>
+      <a href="{% url 'is-returned' approve.id %}">is_returned</a>
+    </button>
+  </div>
+
+  <div class="admin-rent-btn">
+    <button>
+      <a href="{% url 'approved-rent' approve.id %}">Approve rent</a>
+    </button>
   </div>
 </div>
 
+              </div>
+            </div>
+            {%endfor%}
+          </div>
+        </div>
 
-<!-- user dashboard -->
 
-{%else%}
+        <!-- ending -->
+       </div>
+
+
+
+        
+
+      </section>
+    </div>
+  </div>
+</div>
+
+{%else%} 
+
 
 {%if user.userdetails%}
 
@@ -129,7 +195,12 @@
     <div class="dashboard">
         <section class="profile">
           <div class="profile-details">
-            <h2 class="profile-heading">User Profile</h2>
+
+            
+            <h2 class="profile-heading">Profile</h2>
+            <div class="profile-img-div">
+              <img  src="{{user.userdetails.image.url}}" class="profile-img"/>
+            </div>
             <p><b>Firstname:</b> {{user.first_name}}</p>
             <p><b>Lastname:</b> {{user.last_name}}</p>
             <p><b>Email:</b> {{user.email}}</p>
@@ -147,23 +218,47 @@
           <div class="header">
             
             </div>
-          <div class="container">
-            <h2>Bookings</h2>
+          <div class="user-dash-container">
+            <h2 class="text-center">Activities</h2>
             <div class="booking-list">
               {% for rental in userrental%}
-              <div class="booking">
+              <div class="booking-inner">
+            <div class="booking-product">
               <div class="book-img-div">
                 <img src="{{rental.car.image.url}}" alt="Car Image"  class="book-img"/>
               </div>
                 <div class="booking-details">
                   <h3>{{rental.car.brand.name}}</h3>
-                  <p><strong>Amount:</strong>{{rental.car.total_price}}</p>
+                  <p><strong>Amount: </strong>#{{rental.totalPrice }}</p>
                   <p><strong>Start Date:</strong> {{rental.startdate}}</p>
-                  <p><strong>Expected Car return Date:</strong>{{rental.enddate}}</p>
-                  <p><strong>Status:</strong> Pending</p>
+                  <p><strong>Expected Car return Date:</strong>
+
+                  {{rental.enddate}}</p>
+
+                  <p><strong>Status:</strong>
+                  {%if not rental.is_approved%}
+                  Pending Approval
+                  {%else%}
+                  car rental approved
+                  </p>
+                  {%endif%}
+
+                  <p><strong>Returned:</strong>
+                    {%if not rental.is_returned%}
+                    car not returned
+                    {%else%}
+                    car returned
+                    </p>
+                    {%endif%}
+
+                 <p class="cancel">
                   <button>Cancel Booking</button>
+                 </p>
                 </div>
+            </div>
               </div>
+
+              
               {%endfor%}
               <!-- More booking items here -->
             </div>
@@ -176,9 +271,12 @@
   </div>
 
 {%else%}
-<h1>
-  <a href="{%url 'userdetails'%}">Complete Registration</a>
-</h1>
+<div class="complete-reg">
+  <div>
+    <a href="{%url 'userdetails'%}">Complete Registration</a>
+  </div>
+</div>
+
 {%endif%} 
-{%endif%} 
+{%endif%}
 {%endblock%}

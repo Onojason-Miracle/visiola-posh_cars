@@ -14,10 +14,10 @@
  
 
   <label for="duration">Duration</label>
-  <input type="number" id="duration" name="duration" />
+  <input type="number" id="duration" name="duration"  />
 
-  <label for="quantity">Quantity</label>
-  <input type="number" id="quantity" name="quantity"/>
+  <!-- <label for="quantity">Quantity</label> -->
+  <input type="number" id="quantity" name="quantity"  hidden/>
 
   
 
@@ -30,9 +30,18 @@
   </select>
 
 
+
+  
+   
+  
+
+
   <div>
     <input type="number" hidden value="{{id}}" name="car"/>
   </div>
+
+ 
+
  <div class="text-center">
     <button type="submit" class="rentcar-btn">Submit</button>
  </div>
@@ -52,3 +61,27 @@
     <label for="end_date">expected return date:</label>
     <input type="date" id="end_date" name="end_date" />
   </p> -->
+
+
+
+
+
+
+
+  <!-- from django.contrib.auth.models import User
+
+def user_dashboard(request):
+    if request.user.is_superuser:
+        unapproved_rents = Rental.objects.filter(is_approved=False)
+        rents_with_users = []
+        for rent in unapproved_rents:
+            user = rent.user
+            rents_with_users.append((rent, user))
+        
+        return render(request, 'poshcars/dashboard.html', {'rents_with_users': rents_with_users})
+    else:
+        userrental = Rental.objects.filter(user=request.user)
+        return render(request, 'poshcars/dashboard.html', {'userrental': userrental}) -->
+
+
+       

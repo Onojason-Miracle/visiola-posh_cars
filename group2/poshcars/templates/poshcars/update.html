@@ -7,30 +7,109 @@
 
 
 {%block content%}
-<h1>Car Update details here</h1>
+<h1 class="update-car-heading">Update {{ car.brand }} {{ car.model }} </h1>
 
 
 <div class="mx-auto p-2" style="width: 40%;">
 
-    <h2  class="text-center">Update {{post.brand.name}} {{post.model}}</h2>
+   
     
     
-    <form method="post" enctype="multipart/form-data">
-        {%csrf_token%}
-       
-        {%for field in form%}
-        
+    <!-- your_update_car_form.html -->
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+  
+    <!-- Brand -->
+    <label for="brand">Brand:</label>
+    <input type="text" id="brand" name="brand" value="{{ car.brand }}" required>
+  
+    <!-- Model -->
+    <label for="model">Model:</label>
+    <input type="text" id="model" name="model" value="{{ car.model }}" required>
+  
+    <!-- Year -->
+    <label for="year">Year:</label>
+    <input type="number" id="year" name="year" value="{{ car.year }}" required>
+  
+    <!-- Color -->
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" value="{{ car.color }}" required>
+  
+    <!-- Transmission -->
+    <label for="transmission">Transmission:</label>
+    <select id="transmission" name="transmission" required>
+        <option value="Automatic" {% if car.transmission == "Automatic" %} selected {% endif %}>Automatic</option>
+        <option value="Manual" {% if car.transmission == "Manual" %} selected {% endif %}>Manual</option>
+    </select>
+  
+    <!-- Fuel Type -->
+    <label for="fuel_type">Fuel Type:</label>
+    <select id="fuel_type" name="fuel_type" required>
+        <option value="Petrol" {% if car.fuel_type == "Petrol" %} selected {% endif %}>Petrol</option>
+        <option value="Diesel" {% if car.fuel_type == "Diesel" %} selected {% endif %}>Diesel</option>
+        <option value="Electric" {% if car.fuel_type == "Electric" %} selected {% endif %}>Electric</option>
+        <option value="Hybrid" {% if car.fuel_type == "Hybrid" %} selected {% endif %}>Hybrid</option>
+    </select>
+  
+    <!-- Number of Doors -->
+    <label for="number_of_doors">Number of Doors:</label>
+    <input type="number" id="number_of_doors" name="number_of_doors" value="{{ car.number_of_doors }}" required>
+  
+    <!-- Number of Seats -->
+    <label for="number_of_seats">Number of Seats:</label>
+    <input type="number" id="number_of_seats" name="number_of_seats" value="{{ car.number_of_seats }}" required>
+  
+    <!-- Rental Price Per Day -->
+    <label for="rental_price_per_day">Rental Price Per Day:</label>
+    <input type="number" id="rental_price_per_day" name="rental_price_per_day" value="{{ car.rental_price_per_day }}" required>
+  
+    <!-- Location -->
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" value="{{ car.location }}" required>
+  
+    <!-- Availability -->
+    {% if request.user.is_superuser %}
+    <label for="availability">Availability:</label>
+    <select id="availability" name="availability" required>
+        <option value=True {% if car.availability %} selected {% endif %}>Yes</option>
+        <option value=False {% if not car.availability %} selected {% endif %}>No</option>
+    </select>
+    {%endif%}
+  
+    <!-- Image -->
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" accept="image/*">
+  
+    <!-- Description -->
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required>{{ car.description }}</textarea>
+  
+    <!-- Insurance -->
+    <label for="insurance">Insurance:</label>
+    <select id="insurance" name="insurance" required>
+        <option value=True {% if car.insurance %} selected {% endif %}>Yes</option>
+        <option value=False {% if not car.insurance %} selected {% endif %}>No</option>
+    </select>
+  
+    <!-- Verified -->
     
-        <div class="myform">
-        <div class="text-danger">{{field.errors}}</div>
-          <div class="form-label">{{field.label_tag}}</div>
-            <div class="form-control">{{field}}</div>
-        </div>
-    
-        {%endfor%}
-    
-        <button type="submit" name="submit" class="btn btn-primary">Update Car</button>
-    </form>
+    <!-- <label for="verified">Verified:</label> -->
+    <select id="verified" name="verified" required hidden>
+        <option value=True {% if car.verified %} selected {% endif %}>Yes</option>
+        <option value=False {% if not car.verified %} selected {% endif %}>No</option>
+    </select>
+   
+  
+    <!-- Plate Number -->
+    <label for="plate_number">Plate Number:</label>
+    <input type="text" id="plate_number" name="plate_number" value="{{ car.plate_number }}" required>
+  
+    <!-- Submit Button -->
+   <div class="text-center">
+    <button type="submit" class="update-car-btn">Update Car</button>
+   </div>
+</form>
+
     
     </div>
 

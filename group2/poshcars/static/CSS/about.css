@@ -3,7 +3,7 @@
   --white: white;
   --font-jakarta: "Plus Jakarta Sans", sans-serif;
   --font-alfa: "Alfa Slab One", cursive;
-  --red: rgb(150, 13, 13);
+  --red: rgba(150, 13, 13,0.8);
   --grey: #ccc;
 }
 * {
@@ -12,9 +12,7 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "poppins";
-}
+
 
 #about {
   width: 90%;
@@ -23,6 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding-bottom: 5%;
+  align-items: center;
 }
 
 .about-img-div {
@@ -31,7 +30,7 @@ body {
 
 .about-img {
   width: 100%;
-  height: 500px;
+  height: 550px;
   object-fit: cover;
 }
 
@@ -41,7 +40,7 @@ body {
 }
 
 .about-why-choose {
-  margin-top: 5%;
+  margin-top: 12%;
 }
 
 .about-ul li {
@@ -61,7 +60,7 @@ body {
 }
 
 .about-text-heading-p2 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .about-text-heading {
@@ -78,7 +77,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 470px;
+  height: 550px;
 }
 
 .about-why-choose-h1 {
@@ -108,7 +107,7 @@ body {
   font-weight: 900;
   font-size: 18px;
   color: var(--white);
-  margin-bottom: 4%;
+  margin-bottom: 1%;
 }
 
 .service-inner1-h3 {
